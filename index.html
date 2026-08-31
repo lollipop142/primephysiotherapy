@@ -3380,6 +3380,485 @@
 
     }
 
+  
+
+    /* =========================================================
+       COMPACT FOOTER — FINAL
+    ========================================================= */
+
+    .prime-footer-compact {
+      width: 100%;
+      overflow: hidden;
+      color: #fff;
+      background: linear-gradient(115deg,#0c1c3f 0%,#12346f 48%,#1d4093 100%);
+    }
+
+    .prime-footer-grid-compact {
+      width: min(calc(100% - 90px),1500px);
+      margin: 0 auto;
+      padding: 54px 0 48px;
+      display: grid;
+      grid-template-columns:
+        minmax(390px,1.6fr)
+        minmax(115px,.58fr)
+        minmax(185px,.86fr)
+        minmax(150px,.72fr)
+        minmax(220px,.94fr);
+      gap: 48px;
+      align-items: start;
+    }
+
+    .prime-footer-brand-compact { max-width: 500px; }
+
+    .prime-footer-brand-row {
+      display: grid;
+      grid-template-columns: 88px minmax(0,1fr);
+      gap: 23px;
+      align-items: center;
+    }
+
+    .prime-footer-logo-compact {
+      width: 88px;
+      padding: 7px;
+      display: block;
+      border-radius: 5px;
+      background: #fff;
+      box-shadow: 0 10px 30px rgba(0,0,0,.08);
+    }
+
+    .prime-footer-logo-compact img {
+      width: 100%;
+      height: auto;
+    }
+
+    .prime-footer-brand-title {
+      margin: 0 0 8px;
+      color: #fff;
+      font-size: 14.5px;
+      font-weight: 500;
+      line-height: 1.55;
+    }
+
+    .prime-footer-brand-text {
+      margin: 0;
+      color: rgba(255,255,255,.58);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .prime-footer-newsletter-wrap { margin-top: 27px; }
+
+    .prime-footer-newsletter-label {
+      display: block;
+      margin-bottom: 10px;
+      color: rgba(255,255,255,.76);
+      font-family: "Poppins",sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    .prime-footer-email-field {
+      width: 100%;
+      min-height: 52px;
+      padding: 5px 6px 5px 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid rgba(255,255,255,.20);
+      border-radius: 50px;
+      background: rgba(255,255,255,.035);
+      transition: border-color .2s ease,background .2s ease;
+    }
+
+    .prime-footer-email-field:focus-within {
+      border-color: rgba(255,255,255,.48);
+      background: rgba(255,255,255,.06);
+    }
+
+    .prime-footer-email-icon {
+      flex: 0 0 31px;
+      width: 31px;
+      height: 31px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(255,255,255,.10);
+    }
+
+    .prime-footer-email-icon svg {
+      width: 16px;
+      height: 16px;
+      fill: none;
+      stroke: rgba(255,255,255,.75);
+      stroke-width: 1.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .prime-footer-email-field input {
+      flex: 1;
+      min-width: 0;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      color: #fff;
+      font-size: 13.5px;
+    }
+
+    .prime-footer-email-field input::placeholder {
+      color: rgba(255,255,255,.52);
+    }
+
+    .prime-footer-subscribe {
+      min-height: 40px;
+      padding: 0 20px;
+      flex-shrink: 0;
+      border: 0;
+      border-radius: 40px;
+      background: #fff;
+      color: #1d4093;
+      font-family: "Poppins",sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .2s ease,color .2s ease,transform .2s ease;
+    }
+
+    .prime-footer-subscribe:hover {
+      background: #1d4093;
+      color: #fff;
+      outline: 1px solid rgba(255,255,255,.35);
+      transform: translateY(-1px);
+    }
+
+    .prime-footer-privacy {
+      margin: 10px 0 0;
+      color: rgba(255,255,255,.44);
+      font-size: 10.5px;
+    }
+
+    .prime-footer-privacy a { color: rgba(255,255,255,.82); }
+
+    .prime-footer-column-compact h3 {
+      margin: 3px 0 22px;
+      color: #fff;
+      font-family: "Manrope",sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .prime-footer-column-compact ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .prime-footer-column-compact li { margin-bottom: 12px; }
+
+    .prime-footer-column-compact ul a {
+      color: rgba(255,255,255,.62);
+      font-size: 13px;
+      line-height: 1.45;
+      transition: color .2s ease;
+    }
+
+    .prime-footer-column-compact ul a:hover { color: #fff; }
+
+    .prime-footer-location-compact { margin-bottom: 20px; }
+    .prime-footer-location-compact:last-child { margin-bottom: 0; }
+
+    .prime-footer-location-name {
+      display: inline-block;
+      margin-bottom: 5px;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .prime-footer-location-compact p {
+      margin: 0;
+      color: rgba(255,255,255,.54);
+      font-size: 11.5px;
+      line-height: 1.6;
+    }
+
+    .prime-footer-contact-item { margin-bottom: 16px; }
+
+    .prime-footer-contact-item span {
+      display: block;
+      margin-bottom: 4px;
+      color: rgba(255,255,255,.45);
+      font-family: "Poppins",sans-serif;
+      font-size: 8.5px;
+      font-weight: 600;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    .prime-footer-contact-item a {
+      color: rgba(255,255,255,.76);
+      font-size: 13px;
+      line-height: 1.5;
+      transition: color .2s ease;
+    }
+
+    .prime-footer-contact-item a:hover { color: #fff; }
+    .prime-footer-contact-email { overflow-wrap: anywhere; }
+
+    .prime-footer-appointment {
+      min-height: 44px;
+      margin-top: 5px;
+      padding: 0 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 7px;
+      background: rgba(255,255,255,.05);
+      color: #fff;
+      font-family: "Poppins",sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      transition: color .2s ease,background .2s ease,transform .2s ease;
+    }
+
+    .prime-footer-appointment span { transition: transform .2s ease; }
+
+    .prime-footer-appointment:hover {
+      color: #1d4093;
+      background: #fff;
+      transform: translateY(-2px);
+    }
+
+    .prime-footer-appointment:hover span { transform: translateX(3px); }
+
+    .prime-footer-bottom-compact {
+      width: 100%;
+      border-top: 1px solid rgba(255,255,255,.14);
+      background: rgba(4,13,33,.10);
+    }
+
+    .prime-footer-bottom-inner-compact {
+      width: min(calc(100% - 90px),1500px);
+      min-height: 72px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 35px;
+    }
+
+    .prime-footer-copyright {
+      margin: 0;
+      color: rgba(255,255,255,.50);
+      font-size: 11.5px;
+      line-height: 1.5;
+    }
+
+    .prime-footer-bottom-right-compact {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .prime-footer-legal-compact {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+    }
+
+    .prime-footer-legal-compact a {
+      color: rgba(255,255,255,.54);
+      font-size: 11.5px;
+      line-height: 1;
+      transition: color .2s ease;
+    }
+
+    .prime-footer-legal-compact a:hover { color: #fff; }
+
+    .prime-footer-socials-compact {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .prime-footer-social-compact {
+      width: 39px;
+      height: 39px;
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 50%;
+      background: rgba(255,255,255,.035);
+      color: #fff;
+      transition: background .2s ease,border-color .2s ease,color .2s ease,transform .2s ease;
+    }
+
+    .prime-footer-social-compact:hover {
+      background: #fff;
+      border-color: #fff;
+      color: #1d4093;
+      transform: translateY(-2px);
+    }
+
+    .prime-footer-social-compact svg {
+      width: 17px;
+      height: 17px;
+      overflow: visible;
+    }
+
+    .prime-social-facebook svg path {
+      fill: currentColor;
+      stroke: none;
+    }
+
+    .prime-social-instagram svg rect,
+    .prime-social-instagram svg circle {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .prime-social-instagram .prime-instagram-dot {
+      fill: currentColor;
+      stroke: none;
+    }
+
+    .prime-social-linkedin svg path,
+    .prime-social-linkedin .prime-linkedin-dot {
+      fill: currentColor;
+      stroke: none;
+    }
+
+    @media (max-width: 1200px) {
+      .prime-footer-grid-compact {
+        width: calc(100% - 70px);
+        grid-template-columns:
+          minmax(340px,1.4fr)
+          minmax(120px,.55fr)
+          minmax(180px,.8fr)
+          minmax(150px,.7fr);
+        gap: 45px 40px;
+      }
+
+      .prime-footer-contact-compact { grid-column: 2 / 5; }
+      .prime-footer-bottom-inner-compact { width: calc(100% - 70px); }
+    }
+
+    @media (max-width: 900px) {
+      .prime-footer-grid-compact {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+        padding: 50px 0 45px;
+        gap: 42px 50px;
+      }
+
+      .prime-footer-brand-compact {
+        grid-column: 1 / -1;
+        max-width: 650px;
+      }
+
+      .prime-footer-contact-compact { grid-column: auto; }
+      .prime-footer-brand-row { max-width: 560px; }
+      .prime-footer-newsletter-wrap { max-width: 560px; }
+
+      .prime-footer-bottom-inner-compact {
+        min-height: auto;
+        padding: 22px 0;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+
+      .prime-footer-bottom-right-compact {
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .prime-footer-grid-compact {
+        width: calc(100% - 40px);
+        grid-template-columns: 1fr;
+        padding: 45px 0 40px;
+        gap: 36px;
+      }
+
+      .prime-footer-brand-compact { grid-column: auto; }
+
+      .prime-footer-brand-row {
+        grid-template-columns: 76px minmax(0,1fr);
+        gap: 18px;
+      }
+
+      .prime-footer-logo-compact { width: 76px; }
+      .prime-footer-brand-title { font-size: 13px; }
+      .prime-footer-brand-text { font-size: 12px; }
+
+      .prime-footer-email-field {
+        min-height: 50px;
+        padding-left: 11px;
+      }
+
+      .prime-footer-email-icon {
+        width: 29px;
+        height: 29px;
+        flex-basis: 29px;
+      }
+
+      .prime-footer-subscribe {
+        min-height: 38px;
+        padding: 0 14px;
+        font-size: 10px;
+      }
+
+      .prime-footer-bottom-inner-compact { width: calc(100% - 40px); }
+
+      .prime-footer-bottom-right-compact {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+
+      .prime-footer-legal-compact {
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .prime-footer-social-compact {
+        width: 38px;
+        height: 38px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .prime-footer-brand-row {
+        grid-template-columns: 66px minmax(0,1fr);
+      }
+
+      .prime-footer-logo-compact { width: 66px; }
+
+      .prime-footer-email-field {
+        padding: 7px 7px 7px 12px;
+      }
+
+      .prime-footer-email-icon { display: none; }
+
+      .prime-footer-subscribe {
+        padding: 0 12px;
+      }
+    }
+
+
+
   </style>
 
 </head>
@@ -5733,424 +6212,195 @@ document.addEventListener(
 
 
 
-    <!-- =======================================================
-         SECTION 07 — NEWSLETTER
-    ======================================================== -->
+    
+  <!-- =========================================================
+       SECTION 07 — COMPACT FOOTER
+  ========================================================= -->
+  <footer class="prime-footer-compact">
 
-    <section
-      class="prime-newsletter"
-      id="newsletter"
-    >
+    <div class="prime-footer-grid-compact">
 
-      <div class="prime-newsletter-inner">
+      <div class="prime-footer-brand-compact">
 
+        <div class="prime-footer-brand-row">
+          <a href="#" class="prime-footer-logo-compact" aria-label="Prime Physiotherapy Home">
+            <img src="prime-logo.png" alt="Prime Physiotherapy">
+          </a>
 
-        <div class="prime-newsletter-content">
-
-          <span class="prime-newsletter-eyebrow">
-            Stay Connected
-          </span>
-
-
-          <h2 class="prime-newsletter-heading">
-            Get the latest
-            <span>updates from Prime.</span>
-          </h2>
-
-
-          <p class="prime-newsletter-text">
-
-            Sign up to receive helpful health tips, clinic updates,
-            service announcements and the latest news from
-            Prime Physiotherapy.
-
-          </p>
-
+          <div class="prime-footer-brand-copy">
+            <p class="prime-footer-brand-title">
+              Experienced physiotherapy care across South Western Sydney for more than 30 years.
+            </p>
+            <p class="prime-footer-brand-text">
+              Personalised care from clinics in Green Valley, Liverpool and Moorebank.
+            </p>
+          </div>
         </div>
 
+        <div class="prime-footer-newsletter-wrap">
+          <span class="prime-footer-newsletter-label">Stay connected</span>
 
-
-        <div class="prime-newsletter-card">
-
-          <form class="prime-newsletter-form">
-
-
-            <label
-              for="newsletterEmail"
-              class="prime-newsletter-label"
-            >
-              Email Address
-            </label>
-
-
-            <div class="prime-newsletter-input-group">
+          <form class="prime-footer-newsletter" action="#" method="post">
+            <div class="prime-footer-email-field">
+              <span class="prime-footer-email-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                  <path d="m3 7 9 6 9-6"></path>
+                </svg>
+              </span>
 
               <input
                 type="email"
-                id="newsletterEmail"
-                class="prime-newsletter-input"
+                name="email"
                 placeholder="Enter your email address"
+                aria-label="Email address"
                 required
               >
 
-
-              <button
-                type="submit"
-                class="prime-newsletter-button"
-              >
-
+              <button type="submit" class="prime-footer-subscribe">
                 Subscribe
-
-                <span>
-                  →
-                </span>
-
               </button>
-
             </div>
-
-
-            <p class="prime-newsletter-note">
-              We’ll only send relevant updates. No spam.
-            </p>
-
-
           </form>
 
+          <p class="prime-footer-privacy">
+            By subscribing you agree to our
+            <a href="#">Privacy Policy</a>
+          </p>
         </div>
-
 
       </div>
 
-    </section>
+      <div class="prime-footer-column-compact">
+        <h3>Pages</h3>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#">What We Treat</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#">Our Team</a></li>
+          <li><a href="#locations">Locations</a></li>
+          <li><a href="#careers">Careers</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
 
+      <div class="prime-footer-column-compact" id="locations">
+        <h3>Locations</h3>
 
-  </main>
+        <div class="prime-footer-location-compact">
+          <a href="#" class="prime-footer-location-name">Green Valley</a>
+          <p>198 Green Valley Road<br>Green Valley NSW 2168</p>
+        </div>
 
+        <div class="prime-footer-location-compact">
+          <a href="#" class="prime-footer-location-name">Liverpool</a>
+          <p>The Whitlam Centre<br>90a Memorial Ave<br>Liverpool NSW 2170</p>
+        </div>
 
+        <div class="prime-footer-location-compact">
+          <a href="#" class="prime-footer-location-name">Moorebank</a>
+          <p>39 Stockton Ave<br>Moorebank NSW 2170</p>
+        </div>
+      </div>
 
-  <!-- =========================================================
-       SECTION 08 — FOOTER
-  ========================================================= -->
+      <div class="prime-footer-column-compact">
+        <h3>Services</h3>
+        <ul>
+          <li><a href="https://primephysiotherapy.com.au/manipulation/">Manipulation</a></li>
+          <li><a href="https://primephysiotherapy.com.au/work-related/">Work-Related</a></li>
+          <li><a href="https://primephysiotherapy.com.au/gym-programs/">Gym Programs</a></li>
+          <li><a href="https://primephysiotherapy.com.au/hydrotherapy/">Hydrotherapy</a></li>
+          <li><a href="https://primephysiotherapy.com.au/dry-needling/">Dry Needling</a></li>
+          <li><a href="https://primephysiotherapy.com.au/group-exercise/">Group Exercise</a></li>
+          <li><a href="https://primephysiotherapy.com.au/post-op-physiotherapy/">Post-Operative</a></li>
+          <li><a href="https://primephysiotherapy.com.au/womens-health/">Women's Health</a></li>
+        </ul>
+      </div>
 
-  <footer class="prime-footer">
+      <div class="prime-footer-column-compact prime-footer-contact-compact" id="contact">
+        <h3>Get in touch</h3>
 
+        <div class="prime-footer-contact-item">
+          <span>Liverpool</span>
+          <a href="tel:0296008755">02 9600 8755</a>
+        </div>
 
-    <div class="prime-footer-main">
+        <div class="prime-footer-contact-item">
+          <span>Moorebank</span>
+          <a href="tel:0296022296">02 9602 2296</a>
+        </div>
 
-      <div class="prime-footer-inner">
+        <div class="prime-footer-contact-item">
+          <span>Green Valley</span>
+          <a href="tel:0298266855">02 9826 6855</a>
+        </div>
 
-
-        <!-- BRAND -->
-
-        <div class="prime-footer-brand">
-
-          <a
-            href="#"
-            class="prime-footer-logo"
-          >
-
-            <img
-              src="prime-logo.png"
-              alt="Prime Physiotherapy"
-            >
-
+        <div class="prime-footer-contact-item">
+          <span>Email</span>
+          <a href="mailto:info@primephysiotherapy.com.au" class="prime-footer-contact-email">
+            info@primephysiotherapy.com.au
           </a>
-
-
-          <p class="prime-footer-about">
-
-            Providing experienced physiotherapy care to Liverpool
-            and South Western Sydney for more than 30 years.
-
-          </p>
-
-
-          <a
-            href="#"
-            class="prime-footer-book"
-          >
-
-            Book an Appointment
-
-            <span>
-              →
-            </span>
-
-          </a>
-
         </div>
 
+        <a href="#" class="prime-footer-appointment">
+          Book an Appointment <span>→</span>
+        </a>
+      </div>
 
+    </div>
 
-        <!-- QUICK LINKS -->
+    <div class="prime-footer-bottom-compact">
+      <div class="prime-footer-bottom-inner-compact">
 
-        <div class="prime-footer-column">
+        <p class="prime-footer-copyright">
+          © <span id="primeFooterYear"></span>
+          Prime Physiotherapy. All rights reserved.
+        </p>
 
-          <h3>
-            Quick Links
-          </h3>
+        <div class="prime-footer-bottom-right-compact">
 
-
-          <ul>
-
-            <li>
-              <a href="#">
-                Home
-              </a>
-            </li>
-
-            <li>
-              <a href="#about">
-                About
-              </a>
-            </li>
-
-            <li>
-              <a href="#services">
-                Services
-              </a>
-            </li>
-
-            <li>
-              <a href="#gallery">
-                Gallery
-              </a>
-            </li>
-
-            <li>
-              <a href="#locations">
-                Locations
-              </a>
-            </li>
-
-            <li>
-              <a href="#careers">
-                Careers
-              </a>
-            </li>
-
-            <li>
-              <a href="#contact">
-                Contact Us
-              </a>
-            </li>
-
-          </ul>
-
-        </div>
-
-
-
-        <!-- SERVICES -->
-
-        <div class="prime-footer-column">
-
-          <h3>
-            Services
-          </h3>
-
-
-          <ul>
-
-            <li>
-              <a href="#">
-                Manipulation
-              </a>
-            </li>
-
-            <li>
-              <a href="#">
-                Work-Related
-              </a>
-            </li>
-
-            <li>
-              <a href="#">
-                Gym Programs
-              </a>
-            </li>
-
-            <li>
-              <a href="#">
-                Hydrotherapy
-              </a>
-            </li>
-
-            <li>
-              <a href="#">
-                Dry Needling
-              </a>
-            </li>
-
-            <li>
-              <a href="#">
-                Group Exercise
-              </a>
-            </li>
-
-            <li>
-              <a href="#">
-                Post-Operative
-              </a>
-            </li>
-
-            <li>
-              <a href="#">
-                Casting
-              </a>
-            </li>
-
-            <li>
-              <a href="#">
-                Women's Health
-              </a>
-            </li>
-
-          </ul>
-
-        </div>
-
-
-
-        <!-- LOCATIONS -->
-
-        <div
-          class="prime-footer-locations"
-          id="locations"
-        >
-
-          <h3>
-            Our Locations
-          </h3>
-
-
-          <div class="prime-footer-location-grid">
-
-
-            <div class="prime-footer-location">
-
-              <h4>
-                Moorebank
-              </h4>
-
-              <p>
-                39 Stockton Ave<br>
-                Moorebank NSW 2170
-              </p>
-
-              <a href="tel:0296022296">
-                02 9602 2296
-              </a>
-
-            </div>
-
-
-
-            <div class="prime-footer-location">
-
-              <h4>
-                Liverpool
-              </h4>
-
-              <p>
-                The Whitlam Centre<br>
-                90a Memorial Ave<br>
-                Liverpool NSW 2170
-              </p>
-
-              <a href="tel:0296008755">
-                02 9600 8755
-              </a>
-
-            </div>
-
-
-
-            <div class="prime-footer-location">
-
-              <h4>
-                Green Valley
-              </h4>
-
-              <p>
-                198 Green Valley Road<br>
-                Green Valley NSW 2168
-              </p>
-
-              <a href="tel:0298266855">
-                02 9826 6855
-              </a>
-
-            </div>
-
-
+          <div class="prime-footer-legal-compact">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms &amp; Conditions</a>
           </div>
 
+          <div class="prime-footer-socials-compact">
 
+            <a href="#" class="prime-footer-social-compact prime-social-facebook" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M14.5 8.5H17V5h-2.5C11.4 5 10 6.8 10 9.5V12H7v3.5h3V22h4v-6.5h2.7l.6-3.5H14V9.8c0-.9.3-1.3.5-1.3Z"></path>
+              </svg>
+            </a>
 
-          <div
-            class="prime-footer-contact"
-            id="contact"
-          >
+            <a href="#" class="prime-footer-social-compact prime-social-instagram" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect>
+                <circle cx="12" cy="12" r="4"></circle>
+                <circle cx="17.3" cy="6.8" r="1" class="prime-instagram-dot"></circle>
+              </svg>
+            </a>
 
-            <span>
-              Email
-            </span>
-
-            <a href="mailto:info@primephysiotherapy.com.au">
-              info@primephysiotherapy.com.au
+            <a href="#" class="prime-footer-social-compact prime-social-linkedin" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="5.2" cy="5.2" r="1.7" class="prime-linkedin-dot"></circle>
+                <path d="M3.5 9.5h3.4V20H3.5V9.5Z"></path>
+                <path d="M10 9.5h3.3V11c.9-1.2 2.2-1.9 3.9-1.9 3 0 4.3 1.9 4.3 5.3V20h-3.5v-5.1c0-1.7-.6-2.7-2.1-2.7-1.6 0-2.5 1.1-2.5 3.1V20H10V9.5Z"></path>
+              </svg>
             </a>
 
           </div>
-
-
         </div>
 
-
       </div>
-
     </div>
-
-
-
-    <div class="prime-footer-bottom">
-
-      <div class="prime-footer-bottom-inner">
-
-
-        <p>
-
-          ©
-          <span id="primeFooterYear"></span>
-          Prime Physiotherapy. All rights reserved.
-
-        </p>
-
-
-        <div class="prime-footer-legal">
-
-          <a href="#">
-            Privacy Policy
-          </a>
-
-          <a href="#">
-            Terms & Conditions
-          </a>
-
-        </div>
-
-
-      </div>
-
-    </div>
-
 
   </footer>
 
 
 
-  <!-- =========================================================
+<!-- =========================================================
        SECTION 09 — GALLERY LIGHTBOX
   ========================================================= -->
 
