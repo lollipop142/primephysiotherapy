@@ -1,0 +1,6949 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Prime Physiotherapy</title>
+
+
+  <!-- =========================================================
+       GOOGLE FONTS
+  ========================================================= -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&family=Poppins:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <style>
+
+    /* =========================================================
+       00. RESET
+    ========================================================= */
+
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    body {
+      margin: 0;
+
+      overflow-x: hidden;
+
+      background: #ffffff;
+
+      color: #172235;
+
+      font-family: "DM Sans", sans-serif;
+
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+
+    body.lightbox-open {
+      overflow: hidden;
+    }
+
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+
+    button,
+    input {
+      font: inherit;
+    }
+
+
+    button {
+      border: 0;
+      background: none;
+      cursor: pointer;
+    }
+
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+
+    /* =========================================================
+       01. GLOBAL VARIABLES
+    ========================================================= */
+
+    :root {
+
+      --prime-blue: #1d4093;
+      --prime-blue-hover: #163477;
+
+      --prime-dark: #172235;
+      --prime-body: #5f7188;
+
+      --prime-light: #f7fafd;
+      --prime-border: #dce5ee;
+
+      --content-width: 1360px;
+      --header-width: 1530px;
+
+    }
+
+
+
+    /* =========================================================
+       02. HEADER
+    ========================================================= */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+
+      z-index: 9999;
+
+      width: 100%;
+    }
+
+
+    /* =========================================================
+       02A. TOP BLUE BAR
+    ========================================================= */
+
+    .topbar {
+      width: 100%;
+      height: 38px;
+
+      overflow: hidden;
+
+      background: var(--prime-blue);
+
+      transition:
+        height 0.3s ease,
+        opacity 0.3s ease;
+    }
+
+
+    .site-header.scrolled .topbar {
+      height: 0;
+      opacity: 0;
+    }
+
+
+    .topbar-inner {
+      width: min(
+        calc(100% - 80px),
+        var(--header-width)
+      );
+
+      height: 38px;
+
+      margin: 0 auto;
+
+      padding-left: 130px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+
+    .topbar-left,
+    .topbar-right {
+      display: flex;
+      align-items: center;
+
+      gap: 40px;
+    }
+
+
+    .topbar span,
+    .topbar a {
+      color: rgba(255,255,255,0.96);
+
+      font-family: "Poppins", sans-serif;
+
+      font-size: 11px;
+      font-weight: 500;
+
+      line-height: 1;
+    }
+
+
+    .topbar a {
+      transition: opacity 0.2s ease;
+    }
+
+
+    .topbar a:hover {
+      opacity: 0.7;
+    }
+
+
+
+    /* =========================================================
+       02B. MAIN NAV WRAPPER
+    ========================================================= */
+
+    .navbar-wrap {
+      width: 100%;
+
+      background: rgba(255,255,255,0.985);
+
+      border-bottom:
+        1px solid
+        var(--prime-border);
+
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+
+      transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+
+    .site-header.scrolled .navbar-wrap {
+      border-bottom:
+        3px solid
+        var(--prime-blue);
+
+      box-shadow:
+        0 8px 25px
+        rgba(20,45,78,0.07);
+    }
+
+
+    .navbar {
+      position: relative;
+
+      width: min(
+        calc(100% - 80px),
+        var(--header-width)
+      );
+
+      min-height: 88px;
+
+      margin: 0 auto;
+
+      padding-left: 150px;
+
+      display: flex;
+      align-items: center;
+
+      gap: 28px;
+
+      transition:
+        min-height 0.3s ease,
+        padding-left 0.3s ease;
+    }
+
+
+    .site-header.scrolled .navbar {
+      min-height: 70px;
+
+      padding-left: 94px;
+    }
+
+
+
+    /* =========================================================
+       02C. LOGO
+    ========================================================= */
+
+    .logo {
+      position: absolute;
+
+      z-index: 30;
+
+      left: 0;
+      top: -25px;
+
+      height: 116px;
+
+      transition:
+        height 0.3s ease,
+        top 0.3s ease;
+    }
+
+
+    .logo img {
+      width: auto;
+      height: 100%;
+
+      object-fit: contain;
+    }
+
+
+    .site-header.scrolled .logo {
+      top: 7px;
+
+      height: 56px;
+    }
+
+
+
+    /* =========================================================
+       02D. NAVIGATION MENU
+    ========================================================= */
+
+    .nav-menu {
+      flex: 1;
+
+      margin: 0;
+
+      padding:
+        0
+        48px
+        0
+        46px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      list-style: none;
+    }
+
+
+    .nav-menu li {
+      flex-shrink: 0;
+    }
+
+
+    .nav-menu a {
+      position: relative;
+
+      display: inline-flex;
+      align-items: center;
+
+      color: #202d42;
+
+      font-family: "Poppins", sans-serif;
+
+      font-size: 14px;
+      font-weight: 500;
+
+      line-height: 1;
+
+      white-space: nowrap;
+
+      transition: color 0.2s ease;
+    }
+
+
+    .nav-menu a::after {
+      content: "";
+
+      position: absolute;
+
+      left: 50%;
+      bottom: -11px;
+
+      width: 0;
+      height: 2px;
+
+      transform: translateX(-50%);
+
+      background: var(--prime-blue);
+
+      transition: width 0.2s ease;
+    }
+
+
+    .nav-menu a:hover {
+      color: var(--prime-blue);
+    }
+
+
+    .nav-menu a:hover::after {
+      width: 100%;
+    }
+
+
+
+    /* =========================================================
+       02E. HEADER BOOK BUTTON
+    ========================================================= */
+
+    .nav-right {
+      flex-shrink: 0;
+
+      display: flex;
+      align-items: center;
+    }
+
+
+    .book-button {
+      min-width: 182px;
+      min-height: 48px;
+
+      padding:
+        0
+        23px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 7px;
+
+      background: var(--prime-blue);
+
+      color: #ffffff;
+
+      font-family: "Poppins", sans-serif;
+
+      font-size: 12px;
+      font-weight: 500;
+
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+
+    .book-button:hover {
+      background: var(--prime-blue-hover);
+
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 8px 22px
+        rgba(29,64,147,0.18);
+    }
+
+
+    .site-header.scrolled .book-button {
+      min-width: 172px;
+      min-height: 44px;
+    }
+
+
+
+    /* =========================================================
+       02F. MOBILE MENU BUTTON
+    ========================================================= */
+
+    .mobile-toggle {
+      display: none;
+
+      width: 43px;
+      height: 43px;
+
+      align-items: center;
+      justify-content: center;
+
+      border:
+        1px solid
+        var(--prime-border);
+
+      border-radius: 7px;
+
+      background: #ffffff;
+    }
+
+
+    .mobile-toggle span {
+      position: relative;
+
+      width: 20px;
+      height: 2px;
+
+      display: block;
+
+      background: #172235;
+    }
+
+
+    .mobile-toggle span::before,
+    .mobile-toggle span::after {
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+
+      width: 20px;
+      height: 2px;
+
+      background: #172235;
+    }
+
+
+    .mobile-toggle span::before {
+      top: -6px;
+    }
+
+
+    .mobile-toggle span::after {
+      top: 6px;
+    }
+
+
+
+    /* =========================================================
+       03. HERO SECTION
+    ========================================================= */
+
+    .hero {
+      position: relative;
+
+      min-height: 628px;
+
+      overflow: hidden;
+
+      background: #f7fafd;
+    }
+
+
+    .hero-grid {
+      position: relative;
+
+      min-height: 628px;
+
+      display: grid;
+
+      grid-template-columns:
+        43%
+        57%;
+    }
+
+
+
+    /* =========================================================
+       03A. HERO LEFT CONTENT
+    ========================================================= */
+
+    .hero-content {
+      position: relative;
+
+      z-index: 20;
+
+      padding:
+        68px
+        42px
+        68px
+        max(
+          24px,
+          calc((100vw - 1320px) / 2)
+        );
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      transform: translateY(-8px);
+    }
+
+
+    .hero h1 {
+      max-width: 600px;
+
+      margin:
+        0
+        0
+        24px;
+
+      color: var(--prime-dark);
+
+      font-family: "Manrope", sans-serif;
+
+      font-size:
+        clamp(
+          48px,
+          4.15vw,
+          63px
+        );
+
+      font-weight: 800;
+
+      line-height: 1.045;
+
+      letter-spacing: -3px;
+    }
+
+
+    .hero-title-line {
+      display: block;
+    }
+
+
+    .hero h1 .blue {
+      color: var(--prime-blue);
+    }
+
+
+    .hero-description {
+      max-width: 510px;
+
+      margin:
+        0
+        0
+        31px;
+
+      color: #697a90;
+
+      font-size: 15.8px;
+
+      line-height: 1.78;
+    }
+
+
+
+    /* =========================================================
+       03B. HERO BUTTONS
+    ========================================================= */
+
+    .hero-buttons {
+      display: flex;
+      align-items: center;
+
+      gap: 12px;
+    }
+
+
+    .hero-primary,
+    .hero-secondary {
+      min-height: 51px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 7px;
+
+      font-family: "Poppins", sans-serif;
+
+      font-size: 12px;
+      font-weight: 500;
+
+      transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+    }
+
+
+    .hero-primary {
+      min-width: 212px;
+
+      padding:
+        0
+        22px;
+
+      gap: 11px;
+
+      background: var(--prime-blue);
+
+      color: #ffffff;
+    }
+
+
+    .hero-primary:hover {
+      background: var(--prime-blue-hover);
+
+      transform: translateY(-2px);
+    }
+
+
+    .hero-arrow {
+      transition: transform 0.2s ease;
+    }
+
+
+    .hero-primary:hover .hero-arrow {
+      transform: translateX(4px);
+    }
+
+
+    .hero-secondary {
+      min-width: 168px;
+
+      padding:
+        0
+        20px;
+
+      border:
+        1px solid
+        #becbd9;
+
+      background:
+        rgba(255,255,255,0.55);
+
+      color: var(--prime-blue);
+    }
+
+
+    .hero-secondary:hover {
+      background: #ffffff;
+
+      border-color: var(--prime-blue);
+
+      transform: translateY(-2px);
+    }
+
+
+
+    /* =========================================================
+       03C. HERO IMAGE SLIDER
+    ========================================================= */
+
+    .hero-media {
+      position: relative;
+
+      z-index: 5;
+
+      min-height: 628px;
+
+      margin-left: -62px;
+
+      width:
+        calc(100% + 62px);
+
+      overflow: hidden;
+
+      background: #e6ebf1;
+    }
+
+
+    .hero-slide {
+      position: absolute;
+
+      inset: 0;
+
+      z-index: 1;
+
+      opacity: 0;
+
+      transform: scale(1.015);
+
+      pointer-events: none;
+
+      transition:
+        opacity 1s ease-in-out,
+        transform 6s ease;
+    }
+
+
+    .hero-slide.active {
+      z-index: 2;
+
+      opacity: 1;
+
+      transform: scale(1);
+    }
+
+
+    .hero-slide img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      object-position: center;
+    }
+
+
+
+    /* =========================================================
+       03D. HERO IMAGE FADE
+    ========================================================= */
+
+    .hero-media::before {
+      content: "";
+
+      position: absolute;
+
+      z-index: 10;
+
+      inset: 0;
+
+      pointer-events: none;
+
+      background:
+        linear-gradient(
+          90deg,
+
+          #f7fafd 0%,
+
+          rgba(247,250,253,0.96) 2%,
+
+          rgba(247,250,253,0.80) 5%,
+
+          rgba(247,250,253,0.59) 8%,
+
+          rgba(247,250,253,0.36) 11%,
+
+          rgba(247,250,253,0.16) 14%,
+
+          rgba(247,250,253,0.05) 17%,
+
+          transparent 21%
+        );
+    }
+
+
+
+    /* =========================================================
+       03E. HERO SLIDER DOTS
+    ========================================================= */
+
+    .slider-dots {
+      position: absolute;
+
+      z-index: 30;
+
+      right: 24px;
+      bottom: 22px;
+
+      padding:
+        7px
+        9px;
+
+      display: flex;
+      align-items: center;
+
+      gap: 7px;
+
+      border-radius: 30px;
+
+      background:
+        rgba(10,27,47,0.22);
+    }
+
+
+    .slider-dot {
+      width: 6px;
+      height: 6px;
+
+      border:
+        1px solid
+        rgba(255,255,255,0.95);
+
+      border-radius: 50%;
+
+      background:
+        rgba(255,255,255,0.42);
+
+      transition:
+        width 0.25s ease,
+        background 0.25s ease;
+    }
+
+
+    .slider-dot.active {
+      width: 21px;
+
+      border-radius: 20px;
+
+      background: #ffffff;
+    }
+
+
+
+    /* =========================================================
+       04. TRUST / STATS STRIP
+    ========================================================= */
+
+    .trust-strip {
+      width: 100%;
+
+      background:
+        linear-gradient(
+          108deg,
+          #173579 0%,
+          #1d4093 52%,
+          #183779 100%
+        );
+    }
+
+
+    .trust-strip-inner {
+      width: min(
+        calc(100% - 80px),
+        1420px
+      );
+
+      min-height: 101px;
+
+      margin: 0 auto;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(4,1fr);
+    }
+
+
+    .trust-item {
+      position: relative;
+
+      padding:
+        22px
+        36px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+
+    .trust-item:not(:last-child)::after {
+      content: "";
+
+      position: absolute;
+
+      top: 23px;
+      right: 0;
+      bottom: 23px;
+
+      width: 1px;
+
+      background:
+        rgba(255,255,255,0.16);
+    }
+
+
+    .trust-value {
+      margin-bottom: 6px;
+
+      color: #ffffff;
+
+      font-family: "Manrope", sans-serif;
+
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+
+    .trust-description {
+      max-width: 230px;
+
+      color:
+        rgba(255,255,255,0.73);
+
+      font-size: 11px;
+
+      line-height: 1.5;
+    }
+
+
+
+    /* =========================================================
+       05. WELCOME / ABOUT SECTION
+    ========================================================= */
+
+    .prime-about {
+      width: 100%;
+
+      padding:
+        110px
+        0
+        115px;
+
+      background: #f7fafd;
+    }
+
+
+    .prime-about-inner {
+      width: min(
+        calc(100% - 90px),
+        var(--content-width)
+      );
+
+      margin: 0 auto;
+
+      display: grid;
+
+      grid-template-columns:
+        minmax(0,1.08fr)
+        minmax(410px,0.92fr);
+
+      gap: 82px;
+
+      align-items: center;
+    }
+
+
+    .prime-about-main {
+      max-width: 720px;
+    }
+
+
+    .prime-about-eyebrow {
+      display: inline-block;
+
+      margin-bottom: 23px;
+
+      color: var(--prime-blue);
+
+      font-family: "Poppins", sans-serif;
+
+      font-size: 12px;
+      font-weight: 600;
+
+      letter-spacing: 1.7px;
+
+      text-transform: uppercase;
+    }
+
+
+    .prime-about-heading {
+      max-width: 680px;
+
+      margin:
+        0
+        0
+        34px;
+
+      color: var(--prime-dark);
+
+      font-family: "Manrope", sans-serif;
+
+      font-size:
+        clamp(
+          46px,
+          4vw,
+          60px
+        );
+
+      font-weight: 800;
+
+      line-height: 1.06;
+
+      letter-spacing: -2.8px;
+    }
+
+
+    .prime-about-heading span {
+      display: block;
+
+      color: var(--prime-blue);
+    }
+
+
+    .prime-about-copy {
+      max-width: 710px;
+    }
+
+
+    .prime-about-copy p {
+      margin:
+        0
+        0
+        19px;
+
+      color: #596c83;
+
+      font-size: 18px;
+
+      line-height: 1.78;
+    }
+
+
+    .prime-about-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+
+
+    /* =========================================================
+       05A. ABOUT BUTTON
+    ========================================================= */
+
+    .prime-about-button {
+      width: fit-content;
+
+      min-height: 50px;
+
+      margin-top: 34px;
+
+      padding:
+        0
+        23px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      gap: 13px;
+
+      border-radius: 7px;
+
+      background: var(--prime-blue);
+
+      color: #ffffff;
+
+      font-family: "Poppins", sans-serif;
+
+      font-size: 13px;
+      font-weight: 500;
+
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+
+    .prime-about-button:hover {
+      background: var(--prime-blue-hover);
+
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 8px 20px
+        rgba(29,64,147,0.15);
+    }
+
+
+    .prime-about-button-arrow {
+      transition: transform 0.2s ease;
+    }
+
+
+    .prime-about-button:hover
+    .prime-about-button-arrow {
+      transform: translateX(4px);
+    }
+
+
+
+    /* =========================================================
+       05B. ABOUT RIGHT FEATURE
+    ========================================================= */
+
+    .prime-about-feature {
+      width: 100%;
+      max-width: 570px;
+
+      justify-self: end;
+
+      padding:
+        50px
+        50px
+        50px
+        56px;
+
+      background:
+        rgba(255,255,255,0.82);
+
+      border:
+        1px solid
+        #d8e2ec;
+
+      border-left:
+        4px solid
+        var(--prime-blue);
+
+      box-shadow:
+        0 12px 34px
+        rgba(22,51,85,0.035);
+    }
+
+
+    .prime-about-point {
+      padding-bottom: 29px;
+      margin-bottom: 29px;
+
+      border-bottom:
+        1px solid
+        #dce5ed;
+    }
+
+
+    .prime-about-point:last-child {
+      padding-bottom: 0;
+      margin-bottom: 0;
+
+      border-bottom: 0;
+    }
+
+
+    .prime-about-point-title {
+      display: block;
+
+      margin-bottom: 11px;
+
+      color: var(--prime-dark);
+
+      font-family: "Manrope", sans-serif;
+
+      font-size: 25px;
+      font-weight: 700;
+
+      line-height: 1.23;
+
+      letter-spacing: -0.8px;
+    }
+
+
+    .prime-about-point-title.blue {
+      color: var(--prime-blue);
+    }
+
+
+    .prime-about-point p {
+      max-width: 450px;
+
+      color: #63768d;
+
+      font-size: 15.5px;
+
+      line-height: 1.68;
+    }
+
+
+
+    /* =========================================================
+       06. SERVICES SECTION
+    ========================================================= */
+
+    .prime-services {
+      position: relative;
+
+      width: 100%;
+
+      padding:
+        110px
+        0
+        118px;
+
+      overflow: hidden;
+
+      background: #ffffff;
+    }
+
+
+    .prime-services-inner {
+      width: min(
+        calc(100% - 90px),
+        var(--content-width)
+      );
+
+      margin: 0 auto;
+    }
+
+
+
+    /* =========================================================
+       06A. SERVICES HEADER
+    ========================================================= */
+
+    .prime-services-header {
+      margin-bottom: 52px;
+
+      display: grid;
+
+      grid-template-columns:
+        minmax(0,1fr)
+        minmax(350px,0.72fr);
+
+      gap: 80px;
+
+      align-items: end;
+    }
+
+
+    .prime-services-eyebrow {
+      display: inline-block;
+
+      margin-bottom: 20px;
+
+      color: var(--prime-blue);
+
+      font-family: "Poppins", sans-serif;
+
+      font-size: 12px;
+      font-weight: 600;
+
+      letter-spacing: 1.7px;
+
+      text-transform: uppercase;
+    }
+
+
+    .prime-services-heading {
+      max-width: 690px;
+
+      color: var(--prime-dark);
+
+      font-family: "Manrope", sans-serif;
+
+      font-size:
+        clamp(
+          44px,
+          4vw,
+          58px
+        );
+
+      font-weight: 800;
+
+      line-height: 1.06;
+
+      letter-spacing: -2.6px;
+    }
+
+
+    .prime-services-heading span {
+      display: block;
+
+      color: var(--prime-blue);
+    }
+
+
+    .prime-services-header-right {
+      max-width: 500px;
+
+      justify-self: end;
+    }
+
+
+    .prime-services-intro {
+      margin:
+        0
+        0
+        23px;
+
+      color: #5d7088;
+
+      font-size: 17px;
+
+      line-height: 1.72;
+    }
+
+
+
+    /* =========================================================
+       06B. SERVICES ARROWS
+    ========================================================= */
+
+    .prime-services-controls {
+      display: flex;
+      align-items: center;
+
+      gap: 9px;
+    }
+
+
+    .prime-services-arrow {
+      width: 45px;
+      height: 45px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      border:
+        1px solid
+        #cbd7e4;
+
+      border-radius: 50%;
+
+      background: #ffffff;
+
+      color: var(--prime-blue);
+
+      font-size: 18px;
+
+      transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+    }
+
+
+    .prime-services-arrow:hover {
+      background: var(--prime-blue);
+
+      color: #ffffff;
+
+      border-color: var(--prime-blue);
+
+      transform: translateY(-1px);
+    }
+
+
+    .prime-services-arrow:disabled {
+      opacity: 0.3;
+
+      pointer-events: none;
+    }
+
+
+
+    /* =========================================================
+       06C. SERVICES HORIZONTAL TRACK
+    ========================================================= */
+
+    .prime-services-track {
+      width: 100%;
+
+      display: flex;
+
+      gap: 20px;
+
+      overflow-x: auto;
+      overflow-y: hidden;
+
+      scroll-behavior: smooth;
+
+      scroll-snap-type:
+        x mandatory;
+
+      scrollbar-width: none;
+    }
+
+
+    .prime-services-track::-webkit-scrollbar {
+      display: none;
+    }
+
+
+
+    /* =========================================================
+       06D. SERVICE CARD
+    ========================================================= */
+
+    .prime-service-card {
+      flex:
+        0
+        0
+        calc((100% - 60px) / 4);
+
+      min-width: 0;
+
+      scroll-snap-align: start;
+
+      display: flex;
+      flex-direction: column;
+
+      overflow: hidden;
+
+      border:
+        1px solid
+        #dce5ee;
+
+      border-radius: 6px;
+
+      background: #ffffff;
+
+      transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+
+    .prime-service-card:hover {
+      transform: translateY(-5px);
+
+      border-color: #c6d5e5;
+
+      box-shadow:
+        0 18px 40px
+        rgba(20,50,86,0.075);
+    }
+
+
+    .prime-service-image {
+      width: 100%;
+      height: 210px;
+
+      overflow: hidden;
+
+      background: #e5ebf1;
+    }
+
+
+    .prime-service-image img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+      object-position: center;
+
+      transition: transform 0.55s ease;
+    }
+
+
+    .prime-service-card:hover
+    .prime-service-image img {
+      transform: scale(1.04);
+    }
+
+
+    .prime-service-content {
+      flex: 1;
+
+      padding:
+        25px
+        24px
+        25px;
+
+      display: flex;
+      flex-direction: column;
+    }
+
+
+    .prime-service-number {
+      margin-bottom: 13px;
+
+      color:
+        rgba(29,64,147,0.60);
+
+      font-family: "Poppins", sans-serif;
+
+      font-size: 10px;
+      font-weight: 600;
+
+      letter-spacing: 1.4px;
+    }
+
+
+    .prime-service-content h3 {
+      margin:
+        0
+        0
+        12px;
+
+      color: var(--prime-dark);
+
+      font-family: "Manrope", sans-serif;
+
+      font-size: 22px;
+      font-weight: 700;
+
+      line-height: 1.18;
+
+      letter-spacing: -0.55px;
+    }
+
+
+    .prime-service-content p {
+      margin:
+        0
+        0
+        23px;
+
+      color: #64768c;
+
+      font-size: 14.5px;
+
+      line-height: 1.66;
+    }
+
+
+    .prime-service-link {
+      width: fit-content;
+
+      margin-top: auto;
+
+      padding-bottom: 4px;
+
+      display: inline-flex;
+      align-items: center;
+
+      gap: 9px;
+
+      color: var(--prime-blue);
+
+      border-bottom:
+        1px solid
+        rgba(29,64,147,0.24);
+
+      font-family: "Poppins", sans-serif;
+
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+
+    .prime-service-link span {
+      transition: transform 0.2s ease;
+    }
+
+
+    .prime-service-link:hover span {
+      transform: translateX(4px);
+    }
+
+
+
+    /* =========================================================
+       07. INSIDE PRIME GALLERY
+    ========================================================= */
+
+    .prime-gallery {
+      width: 100%;
+
+      padding:
+        110px
+        0
+        120px;
+
+      background: #f7fafd;
+    }
+
+
+    .prime-gallery-inner {
+      width: min(
+        calc(100% - 90px),
+        var(--content-width)
+      );
+
+      margin: 0 auto;
+    }
+
+
+    .prime-gallery-header {
+      margin-bottom: 54px;
+
+      display: grid;
+
+      grid-template-columns:
+        minmax(0,1fr)
+        minmax(360px,0.72fr);
+
+      gap: 90px;
+
+      align-items: end;
+    }
+
+
+    .prime-gallery-eyebrow {
+      display: inline-block;
+
+      margin-bottom: 21px;
+
+      color: var(--prime-blue);
+
+      font-family: "Poppins", sans-serif;
+
+      font-size: 12px;
+      font-weight: 600;
+
+      letter-spacing: 1.7px;
+
+      text-transform: uppercase;
+    }
+
+
+    .prime-gallery-heading {
+      max-width: 720px;
+
+      color: var(--prime-dark);
+
+      font-family: "Manrope", sans-serif;
+
+      font-size:
+        clamp(
+          44px,
+          4vw,
+          58px
+        );
+
+      font-weight: 800;
+
+      line-height: 1.06;
+
+      letter-spacing: -2.6px;
+    }
+
+
+    .prime-gallery-heading span {
+      display: block;
+
+      color: var(--prime-blue);
+    }
+
+
+    .prime-gallery-intro {
+      max-width: 500px;
+    }
+
+
+    .prime-gallery-intro p {
+      margin:
+        0
+        0
+        21px;
+
+      color: #5d7088;
+
+      font-size: 17px;
+
+      line-height: 1.75;
+    }
+
+
+    .prime-gallery-text-link {
+      padding:
+        0
+        0
+        5px;
+
+      display: inline-flex;
+      align-items: center;
+
+      gap: 11px;
+
+      border-bottom:
+        1px solid
+        rgba(29,64,147,0.30);
+
+      color: var(--prime-blue);
+
+      font-family: "Poppins", sans-serif;
+
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+
+
+    /* =========================================================
+       07A. GALLERY GRID
+    ========================================================= */
+
+    .prime-gallery-grid {
+      display: grid;
+
+      grid-template-columns:
+        1.35fr
+        0.85fr;
+
+      grid-template-rows:
+        240px
+        240px
+        270px;
+
+      gap: 18px;
+    }
+
+
+    .prime-gallery-item {
+      position: relative;
+
+      width: 100%;
+
+      padding: 0;
+
+      display: block;
+
+      overflow: hidden;
+
+      border-radius: 5px;
+
+      background: #dde6ee;
+
+      text-align: left;
+    }
+
+
+    .prime-gallery-item img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      transition:
+        transform 0.6s ease,
+        filter 0.3s ease;
+    }
+
+
+    .prime-gallery-item:hover img {
+      transform: scale(1.03);
+
+      filter: brightness(0.94);
+    }
+
+
+    .prime-gallery-large {
+      grid-column: 1;
+
+      grid-row:
+        1 / 3;
+    }
+
+
+    .prime-gallery-small {
+      grid-column: 2;
+    }
+
+
+    .prime-gallery-small:nth-of-type(2) {
+      grid-row: 1;
+    }
+
+
+    .prime-gallery-small:nth-of-type(3) {
+      grid-row: 2;
+    }
+
+
+    .prime-gallery-wide:nth-of-type(4) {
+      grid-column: 1;
+      grid-row: 3;
+    }
+
+
+    .prime-gallery-wide:nth-of-type(5) {
+      grid-column: 2;
+      grid-row: 3;
+    }
+
+
+    .prime-gallery-overlay {
+      position: absolute;
+
+      inset: 0;
+
+      padding:
+        27px
+        30px;
+
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+
+      gap: 20px;
+
+      background:
+        linear-gradient(
+          180deg,
+
+          transparent 48%,
+
+          rgba(10,27,48,0.06) 61%,
+
+          rgba(10,27,48,0.42) 82%,
+
+          rgba(10,27,48,0.74) 100%
+        );
+
+      pointer-events: none;
+    }
+
+
+    .prime-gallery-label {
+      color: #ffffff;
+
+      font-family: "Manrope", sans-serif;
+
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+
+    .prime-gallery-large
+    .prime-gallery-label {
+      font-size: 23px;
+    }
+
+
+    .prime-gallery-view {
+      opacity: 0;
+
+      color:
+        rgba(255,255,255,0.88);
+
+      font-size: 12px;
+
+      transform: translateY(4px);
+
+      transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+    }
+
+
+    .prime-gallery-item:hover
+    .prime-gallery-view {
+      opacity: 1;
+
+      transform: translateY(0);
+    }
+
+
+
+    /* =========================================================
+       08. NEWSLETTER
+    ========================================================= */
+
+    .prime-newsletter {
+      width: 100%;
+
+      padding:
+        100px
+        0;
+
+      background:
+        linear-gradient(
+          180deg,
+          #ffffff,
+          #f2f6fc
+        );
+    }
+
+
+    .prime-newsletter-inner {
+      width: min(
+        calc(100% - 90px),
+        var(--content-width)
+      );
+
+      margin: 0 auto;
+
+      display: grid;
+
+      grid-template-columns:
+        minmax(0,1fr)
+        minmax(420px,540px);
+
+      gap: 70px;
+
+      align-items: center;
+    }
+
+
+    .prime-newsletter-content {
+      max-width: 620px;
+    }
+
+
+    .prime-newsletter-eyebrow {
+      display: inline-block;
+
+      margin-bottom: 18px;
+
+      color: var(--prime-blue);
+
+      font-family: "Poppins", sans-serif;
+
+      font-size: 12px;
+      font-weight: 600;
+
+      letter-spacing: 1.6px;
+
+      text-transform: uppercase;
+    }
+
+
+    .prime-newsletter-heading {
+      margin:
+        0
+        0
+        22px;
+
+      color: var(--prime-dark);
+
+      font-family: "Manrope", sans-serif;
+
+      font-size:
+        clamp(
+          42px,
+          4vw,
+          56px
+        );
+
+      font-weight: 800;
+
+      line-height: 1.06;
+
+      letter-spacing: -2.4px;
+    }
+
+
+    .prime-newsletter-heading span {
+      display: block;
+
+      color: var(--prime-blue);
+    }
+
+
+    .prime-newsletter-text {
+      max-width: 560px;
+
+      color: #5d7088;
+
+      font-size: 17px;
+
+      line-height: 1.75;
+    }
+
+
+
+    /* =========================================================
+       08A. NEWSLETTER FORM
+    ========================================================= */
+
+    .prime-newsletter-card {
+      padding: 38px;
+
+      border:
+        1px solid
+        #d8e3ef;
+
+      border-radius: 14px;
+
+      background: #ffffff;
+
+      box-shadow:
+        0 18px 45px
+        rgba(29,64,147,0.07);
+    }
+
+
+    .prime-newsletter-label {
+      display: block;
+
+      margin-bottom: 14px;
+
+      color: var(--prime-dark);
+
+      font-family: "Poppins", sans-serif;
+
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+
+    .prime-newsletter-input-group {
+      display: flex;
+
+      gap: 11px;
+    }
+
+
+    .prime-newsletter-input {
+      flex: 1;
+
+      min-width: 0;
+      height: 56px;
+
+      padding:
+        0
+        18px;
+
+      border:
+        1px solid
+        #c9d5e3;
+
+      border-radius: 8px;
+
+      outline: none;
+
+      color: var(--prime-dark);
+
+      font-size: 15px;
+
+      transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+
+    .prime-newsletter-input:focus {
+      border-color: var(--prime-blue);
+
+      box-shadow:
+        0 0 0 4px
+        rgba(29,64,147,0.09);
+    }
+
+
+    .prime-newsletter-button {
+      min-width: 145px;
+      height: 56px;
+
+      padding:
+        0
+        22px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      gap: 10px;
+
+      border-radius: 8px;
+
+      background: var(--prime-blue);
+
+      color: #ffffff;
+
+      font-family: "Poppins", sans-serif;
+
+      font-size: 13px;
+      font-weight: 500;
+
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+    }
+
+
+    .prime-newsletter-button:hover {
+      background: var(--prime-blue-hover);
+
+      transform: translateY(-2px);
+    }
+
+
+    .prime-newsletter-note {
+      margin-top: 13px;
+
+      color: #8190a1;
+
+      font-size: 12px;
+    }
+
+
+
+    /* =========================================================
+       09. FOOTER
+    ========================================================= */
+
+    .prime-footer {
+      width: 100%;
+
+      color: #ffffff;
+
+      background: #102c68;
+    }
+
+
+    .prime-footer-main {
+      padding:
+        82px
+        0
+        72px;
+
+      background:
+        linear-gradient(
+          115deg,
+          #173679 0%,
+          #1d4093 50%,
+          #173573 100%
+        );
+    }
+
+
+    .prime-footer-inner {
+      width: min(
+        calc(100% - 90px),
+        1420px
+      );
+
+      margin: 0 auto;
+
+      display: grid;
+
+      grid-template-columns:
+        minmax(230px,1.15fr)
+        minmax(140px,0.7fr)
+        minmax(180px,0.9fr)
+        minmax(420px,1.65fr);
+
+      gap: 65px;
+    }
+
+
+
+    /* =========================================================
+       09A. FOOTER BRAND
+    ========================================================= */
+
+    .prime-footer-brand {
+      max-width: 300px;
+    }
+
+
+    .prime-footer-logo {
+      width: 90px;
+
+      margin-bottom: 26px;
+
+      padding: 7px;
+
+      display: block;
+
+      background: #ffffff;
+    }
+
+
+    .prime-footer-logo img {
+      width: 100%;
+    }
+
+
+    .prime-footer-about {
+      margin:
+        0
+        0
+        27px;
+
+      color:
+        rgba(255,255,255,0.72);
+
+      font-size: 14px;
+
+      line-height: 1.75;
+    }
+
+
+    .prime-footer-book {
+      min-height: 45px;
+
+      padding:
+        0
+        18px;
+
+      display: inline-flex;
+      align-items: center;
+
+      gap: 10px;
+
+      border:
+        1px solid
+        rgba(255,255,255,0.25);
+
+      border-radius: 7px;
+
+      background:
+        rgba(255,255,255,0.08);
+
+      color: #ffffff;
+
+      font-family: "Poppins", sans-serif;
+
+      font-size: 12px;
+      font-weight: 500;
+
+      transition:
+        background 0.2s ease,
+        color 0.2s ease;
+    }
+
+
+    .prime-footer-book:hover {
+      background: #ffffff;
+
+      color: var(--prime-blue);
+    }
+
+
+
+    /* =========================================================
+       09B. FOOTER LINKS
+    ========================================================= */
+
+    .prime-footer-column h3,
+    .prime-footer-locations > h3 {
+      position: relative;
+
+      margin:
+        0
+        0
+        27px;
+
+      padding-bottom: 14px;
+
+      color: #ffffff;
+
+      font-family: "Manrope", sans-serif;
+
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+
+    .prime-footer-column h3::after,
+    .prime-footer-locations > h3::after {
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+      bottom: 0;
+
+      width: 28px;
+      height: 2px;
+
+      background: #9cb4eb;
+    }
+
+
+    .prime-footer-column ul {
+      padding: 0;
+
+      list-style: none;
+    }
+
+
+    .prime-footer-column li {
+      margin-bottom: 12px;
+    }
+
+
+    .prime-footer-column a {
+      color:
+        rgba(255,255,255,0.72);
+
+      font-size: 13.5px;
+
+      transition:
+        color 0.2s ease,
+        padding-left 0.2s ease;
+    }
+
+
+    .prime-footer-column a:hover {
+      padding-left: 4px;
+
+      color: #ffffff;
+    }
+
+
+
+    /* =========================================================
+       09C. FOOTER LOCATIONS
+    ========================================================= */
+
+    .prime-footer-location-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
+      gap: 30px;
+    }
+
+
+    .prime-footer-location h4 {
+      margin-bottom: 10px;
+
+      color: #ffffff;
+
+      font-family: "Manrope", sans-serif;
+
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+
+    .prime-footer-location p {
+      margin-bottom: 10px;
+
+      color:
+        rgba(255,255,255,0.68);
+
+      font-size: 13px;
+
+      line-height: 1.65;
+    }
+
+
+    .prime-footer-location > a {
+      color: #ffffff;
+
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+
+    .prime-footer-contact {
+      margin-top: 32px;
+
+      padding-top: 25px;
+
+      border-top:
+        1px solid
+        rgba(255,255,255,0.13);
+
+      display: flex;
+      flex-direction: column;
+
+      gap: 8px;
+    }
+
+
+    .prime-footer-contact span {
+      color:
+        rgba(255,255,255,0.50);
+
+      font-family: "Poppins", sans-serif;
+
+      font-size: 10px;
+      font-weight: 600;
+
+      letter-spacing: 1.5px;
+
+      text-transform: uppercase;
+    }
+
+
+    .prime-footer-contact a {
+      color: #ffffff;
+
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+
+
+    /* =========================================================
+       09D. FOOTER BOTTOM
+    ========================================================= */
+
+    .prime-footer-bottom {
+      background: #0d2658;
+    }
+
+
+    .prime-footer-bottom-inner {
+      width: min(
+        calc(100% - 90px),
+        1420px
+      );
+
+      min-height: 67px;
+
+      margin: 0 auto;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 25px;
+    }
+
+
+    .prime-footer-bottom p,
+    .prime-footer-legal a {
+      color:
+        rgba(255,255,255,0.58);
+
+      font-size: 12px;
+    }
+
+
+    .prime-footer-legal {
+      display: flex;
+
+      gap: 28px;
+    }
+
+
+    .prime-footer-legal a:hover {
+      color: #ffffff;
+    }
+
+
+
+    /* =========================================================
+       10. GALLERY LIGHTBOX
+    ========================================================= */
+
+    .prime-lightbox {
+      position: fixed;
+
+      z-index: 20000;
+
+      inset: 0;
+
+      display: none;
+      align-items: center;
+      justify-content: center;
+
+      padding:
+        55px
+        90px;
+    }
+
+
+    .prime-lightbox.open {
+      display: flex;
+    }
+
+
+    .prime-lightbox-backdrop {
+      position: absolute;
+
+      inset: 0;
+
+      width: 100%;
+      height: 100%;
+
+      background:
+        rgba(6,18,41,0.92);
+
+      backdrop-filter: blur(7px);
+      -webkit-backdrop-filter: blur(7px);
+    }
+
+
+    .prime-lightbox-dialog {
+      position: relative;
+
+      z-index: 2;
+
+      width:
+        min(
+          1150px,
+          calc(100vw - 160px)
+        );
+
+      height:
+        min(
+          760px,
+          calc(100vh - 120px)
+        );
+    }
+
+
+    .prime-lightbox-image-wrap {
+      width: 100%;
+      height: 100%;
+
+      overflow: hidden;
+
+      border-radius: 5px;
+
+      background: #071938;
+    }
+
+
+    .prime-lightbox-image {
+      width: 100%;
+      height: 100%;
+
+      object-fit: contain;
+    }
+
+
+    .prime-lightbox-caption {
+      position: absolute;
+
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      padding:
+        30px
+        28px
+        24px;
+
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+
+      background:
+        linear-gradient(
+          transparent,
+          rgba(7,21,38,0.9)
+        );
+    }
+
+
+    .prime-lightbox-small {
+      display: block;
+
+      margin-bottom: 5px;
+
+      color:
+        rgba(255,255,255,0.58);
+
+      font-family: "Poppins", sans-serif;
+
+      font-size: 9px;
+
+      letter-spacing: 1.6px;
+
+      text-transform: uppercase;
+    }
+
+
+    .prime-lightbox-caption strong {
+      color: #ffffff;
+
+      font-family: "Manrope", sans-serif;
+
+      font-size: 20px;
+    }
+
+
+    .prime-lightbox-counter {
+      color:
+        rgba(255,255,255,0.68);
+
+      font-size: 13px;
+    }
+
+
+    .prime-lightbox-close,
+    .prime-lightbox-arrow {
+      position: absolute;
+
+      z-index: 5;
+
+      width: 44px;
+      height: 44px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border:
+        1px solid
+        rgba(255,255,255,0.24);
+
+      border-radius: 50%;
+
+      background:
+        rgba(255,255,255,0.08);
+
+      color: #ffffff;
+
+      font-size: 19px;
+    }
+
+
+    .prime-lightbox-close {
+      top: -52px;
+      right: 0;
+
+      font-size: 25px;
+    }
+
+
+    .prime-lightbox-prev {
+      left: -65px;
+      top: 50%;
+
+      transform: translateY(-50%);
+    }
+
+
+    .prime-lightbox-next {
+      right: -65px;
+      top: 50%;
+
+      transform: translateY(-50%);
+    }
+
+
+
+    /* =========================================================
+       11. TABLET RESPONSIVE
+    ========================================================= */
+
+    @media (max-width: 980px) {
+
+      .topbar {
+        display: none;
+      }
+
+
+      .navbar {
+        width:
+          calc(100% - 40px);
+
+        min-height: 76px;
+
+        padding-left: 90px;
+
+        justify-content: flex-end;
+      }
+
+
+      .site-header.scrolled .navbar {
+        min-height: 68px;
+
+        padding-left: 80px;
+      }
+
+
+      .logo,
+      .site-header.scrolled .logo {
+        top: 7px;
+
+        height: 62px;
+      }
+
+
+      .nav-menu {
+        position: absolute;
+
+        top: 76px;
+        left: 0;
+        right: 0;
+
+        padding:
+          30px
+          26px;
+
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 24px;
+
+        background: #ffffff;
+
+        box-shadow:
+          0 18px 35px
+          rgba(17,44,76,0.1);
+      }
+
+
+      .nav-menu.open {
+        display: flex;
+      }
+
+
+      .nav-menu a {
+        font-size: 15px;
+      }
+
+
+      .nav-menu a::after {
+        display: none;
+      }
+
+
+      .book-button {
+        display: none;
+      }
+
+
+      .mobile-toggle {
+        display: flex;
+      }
+
+
+
+      /* HERO */
+
+      .hero,
+      .hero-grid {
+        min-height: auto;
+      }
+
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+
+      .hero-content {
+        min-height: 475px;
+
+        padding:
+          62px
+          40px
+          50px;
+
+        transform: none;
+      }
+
+
+      .hero h1 {
+        font-size: 52px;
+      }
+
+
+      .hero-media {
+        min-height: 465px;
+
+        width: 100%;
+
+        margin-left: 0;
+      }
+
+
+      .hero-media::before {
+        background:
+          linear-gradient(
+            180deg,
+
+            #f7fafd,
+
+            rgba(247,250,253,0.65) 10%,
+
+            transparent 26%
+          );
+      }
+
+
+
+      /* TRUST */
+
+      .trust-strip-inner {
+        width: 100%;
+
+        grid-template-columns:
+          repeat(2,1fr);
+      }
+
+
+      .trust-item::after {
+        display: none;
+      }
+
+
+
+      /* ABOUT */
+
+      .prime-about {
+        padding:
+          88px
+          0;
+      }
+
+
+      .prime-about-inner {
+        width:
+          calc(100% - 70px);
+
+        grid-template-columns: 1fr;
+
+        gap: 55px;
+      }
+
+
+      .prime-about-feature {
+        max-width: none;
+
+        justify-self: stretch;
+      }
+
+
+
+      /* SERVICES */
+
+      .prime-services {
+        padding:
+          88px
+          0
+          95px;
+      }
+
+
+      .prime-services-inner {
+        width:
+          calc(100% - 70px);
+      }
+
+
+      .prime-services-header {
+        grid-template-columns: 1fr;
+
+        gap: 24px;
+      }
+
+
+      .prime-services-header-right {
+        max-width: 700px;
+
+        justify-self: start;
+      }
+
+
+      .prime-service-card {
+        flex:
+          0
+          0
+          calc((100% - 20px) / 2);
+      }
+
+
+      .prime-service-image {
+        height: 225px;
+      }
+
+
+
+      /* GALLERY */
+
+      .prime-gallery {
+        padding:
+          88px
+          0
+          95px;
+      }
+
+
+      .prime-gallery-inner {
+        width:
+          calc(100% - 70px);
+      }
+
+
+      .prime-gallery-header {
+        grid-template-columns: 1fr;
+
+        gap: 24px;
+      }
+
+
+      .prime-gallery-grid {
+        grid-template-columns:
+          repeat(2,1fr);
+
+        grid-template-rows:
+          380px
+          230px
+          230px;
+      }
+
+
+      .prime-gallery-large {
+        grid-column:
+          1 / -1;
+
+        grid-row: 1;
+      }
+
+
+      .prime-gallery-small:nth-of-type(2) {
+        grid-column: 1;
+        grid-row: 2;
+      }
+
+
+      .prime-gallery-small:nth-of-type(3) {
+        grid-column: 2;
+        grid-row: 2;
+      }
+
+
+      .prime-gallery-wide:nth-of-type(4) {
+        grid-column: 1;
+        grid-row: 3;
+      }
+
+
+      .prime-gallery-wide:nth-of-type(5) {
+        grid-column: 2;
+        grid-row: 3;
+      }
+
+
+
+      /* NEWSLETTER */
+
+      .prime-newsletter {
+        padding:
+          85px
+          0;
+      }
+
+
+      .prime-newsletter-inner {
+        width:
+          calc(100% - 70px);
+
+        grid-template-columns: 1fr;
+
+        gap: 34px;
+      }
+
+
+
+      /* FOOTER */
+
+      .prime-footer-inner {
+        width:
+          calc(100% - 70px);
+
+        grid-template-columns:
+          repeat(2,1fr);
+
+        gap:
+          55px
+          50px;
+      }
+
+
+      .prime-footer-locations {
+        grid-column:
+          1 / -1;
+      }
+
+
+      .prime-footer-bottom-inner {
+        width:
+          calc(100% - 70px);
+      }
+
+    }
+
+
+
+    /* =========================================================
+       12. MOBILE RESPONSIVE
+    ========================================================= */
+
+    @media (max-width: 650px) {
+
+      .navbar {
+        width:
+          calc(100% - 30px);
+
+        padding-left: 68px;
+      }
+
+
+      .logo,
+      .site-header.scrolled .logo {
+        height: 54px;
+      }
+
+
+
+      /* HERO */
+
+      .hero-content {
+        padding:
+          50px
+          22px
+          44px;
+      }
+
+
+      .hero h1 {
+        font-size: 40px;
+
+        letter-spacing: -2.2px;
+      }
+
+
+      .hero-description {
+        font-size: 14.5px;
+      }
+
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+
+      .hero-primary,
+      .hero-secondary {
+        width: 100%;
+      }
+
+
+      .hero-media {
+        min-height: 360px;
+      }
+
+
+
+      /* TRUST */
+
+      .trust-strip-inner {
+        grid-template-columns:
+          repeat(2,1fr);
+      }
+
+
+      .trust-item {
+        min-height: 102px;
+
+        padding:
+          20px
+          22px;
+      }
+
+
+      .trust-value {
+        font-size: 19px;
+      }
+
+
+
+      /* COMMON WIDTH */
+
+      .prime-about-inner,
+      .prime-services-inner,
+      .prime-gallery-inner,
+      .prime-newsletter-inner,
+      .prime-footer-inner,
+      .prime-footer-bottom-inner {
+        width:
+          calc(100% - 44px);
+      }
+
+
+
+      /* ABOUT */
+
+      .prime-about {
+        padding:
+          70px
+          0;
+      }
+
+
+      .prime-about-heading {
+        font-size: 40px;
+      }
+
+
+      .prime-about-copy p {
+        font-size: 15.5px;
+      }
+
+
+      .prime-about-feature {
+        padding:
+          36px
+          27px
+          36px
+          31px;
+      }
+
+
+
+      /* SERVICES */
+
+      .prime-services {
+        padding:
+          70px
+          0
+          78px;
+      }
+
+
+      .prime-services-heading {
+        font-size: 39px;
+      }
+
+
+      .prime-services-intro {
+        font-size: 15.5px;
+      }
+
+
+      .prime-service-card {
+        flex-basis: 86%;
+      }
+
+
+      .prime-service-image {
+        height: 240px;
+      }
+
+
+
+      /* GALLERY */
+
+      .prime-gallery {
+        padding:
+          70px
+          0
+          78px;
+      }
+
+
+      .prime-gallery-heading {
+        font-size: 39px;
+      }
+
+
+      .prime-gallery-grid {
+        grid-template-columns: 1fr;
+
+        grid-template-rows: none;
+
+        gap: 14px;
+      }
+
+
+      .prime-gallery-large,
+      .prime-gallery-small,
+      .prime-gallery-wide,
+      .prime-gallery-small:nth-of-type(2),
+      .prime-gallery-small:nth-of-type(3),
+      .prime-gallery-wide:nth-of-type(4),
+      .prime-gallery-wide:nth-of-type(5) {
+        grid-column: auto;
+        grid-row: auto;
+
+        height: 255px;
+      }
+
+
+      .prime-gallery-large {
+        height: 325px;
+      }
+
+
+      .prime-gallery-view {
+        opacity: 1;
+      }
+
+
+
+      /* NEWSLETTER */
+
+      .prime-newsletter {
+        padding:
+          68px
+          0;
+      }
+
+
+      .prime-newsletter-heading {
+        font-size: 38px;
+      }
+
+
+      .prime-newsletter-text {
+        font-size: 15.5px;
+      }
+
+
+      .prime-newsletter-card {
+        padding: 24px;
+      }
+
+
+      .prime-newsletter-input-group {
+        flex-direction: column;
+      }
+
+
+      .prime-newsletter-input,
+      .prime-newsletter-button {
+        width: 100%;
+      }
+
+
+
+      /* FOOTER */
+
+      .prime-footer-main {
+        padding:
+          58px
+          0;
+      }
+
+
+      .prime-footer-inner {
+        grid-template-columns: 1fr;
+
+        gap: 44px;
+      }
+
+
+      .prime-footer-locations {
+        grid-column: auto;
+      }
+
+
+      .prime-footer-location-grid {
+        grid-template-columns: 1fr;
+      }
+
+
+      .prime-footer-location {
+        padding:
+          20px
+          0;
+
+        border-bottom:
+          1px solid
+          rgba(255,255,255,0.12);
+      }
+
+
+      .prime-footer-bottom-inner {
+        padding:
+          22px
+          0;
+
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+
+
+      /* LIGHTBOX */
+
+      .prime-lightbox {
+        padding:
+          65px
+          18px
+          25px;
+      }
+
+
+      .prime-lightbox-dialog {
+        width: 100%;
+        height:
+          calc(100vh - 100px);
+      }
+
+
+      .prime-lightbox-prev {
+        left: 14px;
+
+        top: auto;
+        bottom: 105px;
+
+        transform: none;
+      }
+
+
+      .prime-lightbox-next {
+        right: 14px;
+
+        top: auto;
+        bottom: 105px;
+
+        transform: none;
+      }
+
+    }
+
+
+
+    /* =========================================================
+       13. SMALL MOBILE
+    ========================================================= */
+
+    @media (max-width: 420px) {
+
+      .prime-about-inner,
+      .prime-services-inner,
+      .prime-gallery-inner,
+      .prime-newsletter-inner,
+      .prime-footer-inner,
+      .prime-footer-bottom-inner {
+        width:
+          calc(100% - 36px);
+      }
+
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+
+      .prime-about-heading,
+      .prime-services-heading,
+      .prime-gallery-heading,
+      .prime-newsletter-heading {
+        font-size: 35px;
+      }
+
+
+      .prime-service-card {
+        flex-basis: 90%;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+
+<body>
+
+
+  <!-- =========================================================
+       SECTION 01 — HEADER
+  ========================================================= -->
+
+  <header
+    class="site-header"
+    id="siteHeader"
+  >
+
+
+    <div class="topbar">
+
+      <div class="topbar-inner">
+
+
+        <div class="topbar-left">
+
+          <span>
+            Green Valley
+          </span>
+
+          <span>
+            Liverpool
+          </span>
+
+          <span>
+            Moorebank
+          </span>
+
+        </div>
+
+
+        <div class="topbar-right">
+
+          <a href="#locations">
+            Our Locations
+          </a>
+
+          <a href="#contact">
+            Contact Us
+          </a>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+
+
+    <div class="navbar-wrap">
+
+      <nav
+        class="navbar"
+        aria-label="Main navigation"
+      >
+
+
+        <a
+          href="#"
+          class="logo"
+          aria-label="Prime Physiotherapy Home"
+        >
+
+          <img
+            src="prime-logo.png"
+            alt="Prime Physiotherapy"
+          >
+
+        </a>
+
+
+
+        <ul
+          class="nav-menu"
+          id="navMenu"
+        >
+
+          <li>
+            <a href="#about">
+              About
+            </a>
+          </li>
+
+          <li>
+            <a href="#what-we-treat">
+              What We Treat
+            </a>
+          </li>
+
+          <li>
+            <a href="#services">
+              Services
+            </a>
+          </li>
+
+          <li>
+            <a href="#team">
+              Our Team
+            </a>
+          </li>
+
+          <li>
+            <a href="#locations">
+              Locations
+            </a>
+          </li>
+
+          <li>
+            <a href="#careers">
+              Careers
+            </a>
+          </li>
+
+        </ul>
+
+
+
+        <div class="nav-right">
+
+          <a
+            href="#"
+            class="book-button"
+          >
+            Book an Appointment
+          </a>
+
+
+          <button
+            type="button"
+            class="mobile-toggle"
+            id="mobileToggle"
+            aria-label="Open navigation"
+          >
+            <span></span>
+          </button>
+
+        </div>
+
+
+      </nav>
+
+    </div>
+
+
+  </header>
+
+
+
+  <main>
+
+
+    <!-- =======================================================
+         SECTION 02 — HERO
+    ======================================================== -->
+
+    <section class="hero">
+
+      <div class="hero-grid">
+
+
+        <div class="hero-content">
+
+
+          <h1>
+
+            <span class="hero-title-line">
+              Helping you
+            </span>
+
+            <span class="hero-title-line blue">
+              move better and
+            </span>
+
+            <span class="hero-title-line">
+              live stronger.
+            </span>
+
+          </h1>
+
+
+          <p class="hero-description">
+
+            Personalised physiotherapy care from an experienced
+            team focused on helping you recover, regain confidence
+            and get back to doing what matters most.
+
+          </p>
+
+
+          <div class="hero-buttons">
+
+            <a
+              href="#"
+              class="hero-primary"
+            >
+
+               Explore Services
+
+              <span class="hero-arrow">
+                →
+              </span>
+
+            </a>
+
+
+            <a
+              href="#locations"
+              class="hero-secondary"
+            >
+              Contact Us
+            </a>
+
+          </div>
+
+
+        </div>
+
+
+
+        <div class="hero-media">
+
+
+          <div class="hero-slide active">
+
+            <img
+              src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=1900&q=92"
+              alt="Physiotherapist assisting a patient"
+            >
+
+          </div>
+
+
+          <div class="hero-slide">
+
+            <img
+              src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1900&q=92"
+              alt="Patient completing rehabilitation exercise"
+            >
+
+          </div>
+
+
+          <div class="hero-slide">
+
+            <img
+              src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=1900&q=92"
+              alt="Professional physiotherapy care"
+            >
+
+          </div>
+
+
+
+          <div class="slider-dots">
+
+            <button
+              type="button"
+              class="slider-dot active"
+              data-slide="0"
+              aria-label="Show image one"
+            ></button>
+
+            <button
+              type="button"
+              class="slider-dot"
+              data-slide="1"
+              aria-label="Show image two"
+            ></button>
+
+            <button
+              type="button"
+              class="slider-dot"
+              data-slide="2"
+              aria-label="Show image three"
+            ></button>
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =======================================================
+         SECTION 03 — TRUST / STATS
+    ======================================================== -->
+
+    <section class="trust-strip">
+
+      <div class="trust-strip-inner">
+
+
+        <div class="trust-item">
+
+          <strong class="trust-value">
+            30+ Years
+          </strong>
+
+          <p class="trust-description">
+            Serving the South Western Sydney community.
+          </p>
+
+        </div>
+
+
+        <div class="trust-item">
+
+          <strong class="trust-value">
+            3 Locations
+          </strong>
+
+          <p class="trust-description">
+            Green Valley, Liverpool and Moorebank.
+          </p>
+
+        </div>
+
+
+        <div class="trust-item">
+
+          <strong class="trust-value">
+            APA Titled
+          </strong>
+
+          <p class="trust-description">
+            Musculoskeletal physiotherapy expertise.
+          </p>
+
+        </div>
+
+
+        <div class="trust-item">
+
+          <strong class="trust-value">
+            Personalised Care
+          </strong>
+
+          <p class="trust-description">
+            Treatment focused on your recovery and goals.
+          </p>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =======================================================
+         SECTION 04 — WELCOME / ABOUT
+    ======================================================== -->
+
+    <section
+      class="prime-about"
+      id="about"
+    >
+
+      <div class="prime-about-inner">
+
+
+        <div class="prime-about-main">
+
+
+          <span class="prime-about-eyebrow">
+            Welcome to Prime Physiotherapy
+          </span>
+
+
+          <h2 class="prime-about-heading">
+            Experienced care,
+            <span>close to home.</span>
+          </h2>
+
+
+          <div class="prime-about-copy">
+
+
+            <p>
+
+              Prime Physiotherapy has proudly served the Liverpool
+              and South Western Sydney community for more than
+              30 years, providing experienced physiotherapy care
+              close to home.
+
+            </p>
+
+
+            <p>
+
+              Our postgraduate-qualified physiotherapists combine
+              advanced skills, extensive clinical experience and
+              ongoing professional education to provide high-quality
+              treatment across our practices.
+
+            </p>
+
+
+            <p>
+
+              With modern facilities, onsite parking and APA Titled
+              Musculoskeletal Physiotherapists, we are committed to
+              providing the level of physiotherapy care our local
+              community deserves.
+
+            </p>
+
+
+          </div>
+
+
+
+          <a
+            href="#"
+            class="prime-about-button"
+          >
+
+            Learn More About Prime
+
+            <span class="prime-about-button-arrow">
+              →
+            </span>
+
+          </a>
+
+
+        </div>
+
+
+
+        <aside class="prime-about-feature">
+
+
+          <div class="prime-about-point">
+
+            <strong class="prime-about-point-title">
+              30+ years of experience.
+            </strong>
+
+            <p>
+              Serving the Liverpool and South Western Sydney community.
+            </p>
+
+          </div>
+
+
+          <div class="prime-about-point">
+
+            <strong class="prime-about-point-title blue">
+              Postgraduate-qualified care.
+            </strong>
+
+            <p>
+              Experienced physiotherapists committed to ongoing
+              education and professional development.
+            </p>
+
+          </div>
+
+
+          <div class="prime-about-point">
+
+            <strong class="prime-about-point-title">
+              APA Titled expertise.
+            </strong>
+
+            <p>
+              Our partners are APA Titled Musculoskeletal
+              Physiotherapists with advanced expertise and
+              experience in their area of practice.
+            </p>
+
+          </div>
+
+
+        </aside>
+
+
+      </div>
+
+    </section>
+
+
+<!-- =========================================================
+     SECTION — SERVICES
+========================================================= -->
+
+<section class="prime-services" id="services">
+
+  <div class="prime-services-inner">
+
+
+    <!-- =======================================================
+         SERVICES HEADER
+    ======================================================== -->
+
+    <div class="prime-services-header">
+
+      <!-- LEFT -->
+      <div class="prime-services-heading-wrap">
+
+        <span class="prime-services-eyebrow">
+          Our Services
+        </span>
+
+        <h2 class="prime-services-heading">
+          Care designed to help you
+          <span>move forward.</span>
+        </h2>
+
+      </div>
+
+
+      <!-- RIGHT -->
+      <div class="prime-services-header-right">
+
+        <p class="prime-services-intro">
+          From hands-on treatment and rehabilitation to exercise,
+          workplace care and specialised physiotherapy, explore the
+          services available at Prime Physiotherapy.
+        </p>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- =======================================================
+         SERVICES CAROUSEL
+    ======================================================== -->
+
+    <div class="prime-services-carousel">
+
+
+      <!-- LEFT ARROW -->
+
+      <button
+        type="button"
+        class="prime-services-arrow prime-services-prev"
+        id="primeServicesPrev"
+        aria-label="Previous services"
+      >
+        <span aria-hidden="true">
+          ←
+        </span>
+      </button>
+
+
+
+      <!-- =====================================================
+           HORIZONTAL TRACK
+      ====================================================== -->
+
+      <div
+        class="prime-services-track"
+        id="primeServicesTrack"
+      >
+
+
+        <!-- ===================================================
+             SERVICE 01 — MANIPULATION
+        ==================================================== -->
+
+        <article class="prime-service-card">
+
+          <a
+            href="https://primephysiotherapy.com.au/manipulation/"
+            class="prime-service-image"
+            aria-label="Learn more about Manipulation"
+          >
+
+            <img
+              src="https://primephysiotherapy.com.au/wp-content/uploads/2020/07/manipulation-1-253x300.jpg"
+              alt="Manipulation physiotherapy"
+            >
+
+          </a>
+
+
+          <div class="prime-service-content">
+
+            <span class="prime-service-number">
+              01
+            </span>
+
+
+            <h3>
+              Manipulation
+            </h3>
+
+
+            <p>
+              Manual mobilisation techniques used by physiotherapists
+              to help treat joints and muscles.
+            </p>
+
+
+            <a
+              href="https://primephysiotherapy.com.au/manipulation/"
+              class="prime-service-link"
+            >
+              Learn More
+
+              <span aria-hidden="true">
+                →
+              </span>
+            </a>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- ===================================================
+             SERVICE 02 — WORK-RELATED
+        ==================================================== -->
+
+        <article class="prime-service-card">
+
+          <a
+            href="https://primephysiotherapy.com.au/work-related/"
+            class="prime-service-image"
+            aria-label="Learn more about Work-Related services"
+          >
+
+            <img
+              src="https://primephysiotherapy.com.au/wp-content/uploads/2020/07/Work-Related-253x300.jpg"
+              alt="Work-related physiotherapy"
+            >
+
+          </a>
+
+
+          <div class="prime-service-content">
+
+            <span class="prime-service-number">
+              02
+            </span>
+
+
+            <h3>
+              Work-Related
+            </h3>
+
+
+            <p>
+              Job readiness and workplace assessments designed to
+              support employers and employees.
+            </p>
+
+
+            <a
+              href="https://primephysiotherapy.com.au/work-related/"
+              class="prime-service-link"
+            >
+              Learn More
+
+              <span aria-hidden="true">
+                →
+              </span>
+            </a>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- ===================================================
+             SERVICE 03 — GYM PROGRAMS
+        ==================================================== -->
+
+        <article class="prime-service-card">
+
+          <a
+            href="https://primephysiotherapy.com.au/gym-programs/"
+            class="prime-service-image"
+            aria-label="Learn more about Gym Programs"
+          >
+
+            <img
+              src="https://primephysiotherapy.com.au/wp-content/uploads/2020/07/gym-program-253x300.jpg"
+              alt="Gym programs"
+            >
+
+          </a>
+
+
+          <div class="prime-service-content">
+
+            <span class="prime-service-number">
+              03
+            </span>
+
+
+            <h3>
+              Gym Programs
+            </h3>
+
+
+            <p>
+              Tailored exercise programs supporting rehabilitation
+              following injury or surgery.
+            </p>
+
+
+            <a
+              href="https://primephysiotherapy.com.au/gym-programs/"
+              class="prime-service-link"
+            >
+              Learn More
+
+              <span aria-hidden="true">
+                →
+              </span>
+            </a>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- ===================================================
+             SERVICE 04 — HYDROTHERAPY
+        ==================================================== -->
+
+        <article class="prime-service-card">
+
+          <a
+            href="https://primephysiotherapy.com.au/hydrotherapy/"
+            class="prime-service-image"
+            aria-label="Learn more about Hydrotherapy"
+          >
+
+            <img
+              src="https://primephysiotherapy.com.au/wp-content/uploads/2020/07/hydrotherapy-1-253x300.jpg"
+              alt="Hydrotherapy"
+            >
+
+          </a>
+
+
+          <div class="prime-service-content">
+
+            <span class="prime-service-number">
+              04
+            </span>
+
+
+            <h3>
+              Hydrotherapy
+            </h3>
+
+
+            <p>
+              Aquatic physiotherapy using heated water to assist
+              movement and rehabilitation.
+            </p>
+
+
+            <a
+              href="https://primephysiotherapy.com.au/hydrotherapy/"
+              class="prime-service-link"
+            >
+              Learn More
+
+              <span aria-hidden="true">
+                →
+              </span>
+            </a>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- ===================================================
+             SERVICE 05 — DRY NEEDLING
+        ==================================================== -->
+
+        <article class="prime-service-card">
+
+          <a
+            href="https://primephysiotherapy.com.au/dry-needling/"
+            class="prime-service-image"
+            aria-label="Learn more about Dry Needling"
+          >
+
+            <img
+              src="https://primephysiotherapy.com.au/wp-content/uploads/2020/07/dry-neddling-253x300.jpg"
+              alt="Dry needling"
+            >
+
+          </a>
+
+
+          <div class="prime-service-content">
+
+            <span class="prime-service-number">
+              05
+            </span>
+
+
+            <h3>
+              Dry Needling
+            </h3>
+
+
+            <p>
+              A western needling technique used as part of treatment
+              for selected muscular conditions.
+            </p>
+
+
+            <a
+              href="https://primephysiotherapy.com.au/dry-needling/"
+              class="prime-service-link"
+            >
+              Learn More
+
+              <span aria-hidden="true">
+                →
+              </span>
+            </a>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- ===================================================
+             SERVICE 06 — GROUP EXERCISE
+        ==================================================== -->
+
+        <article class="prime-service-card">
+
+          <a
+            href="https://primephysiotherapy.com.au/group-exercise/"
+            class="prime-service-image"
+            aria-label="Learn more about Group Exercise"
+          >
+
+            <img
+              src="https://primephysiotherapy.com.au/wp-content/uploads/2020/07/group-excercise-253x300.jpg"
+              alt="Group exercise"
+            >
+
+          </a>
+
+
+          <div class="prime-service-content">
+
+            <span class="prime-service-number">
+              06
+            </span>
+
+
+            <h3>
+              Group Exercise
+            </h3>
+
+
+            <p>
+              Tailored exercises designed to support recovery,
+              movement and physical performance.
+            </p>
+
+
+            <a
+              href="https://primephysiotherapy.com.au/group-exercise/"
+              class="prime-service-link"
+            >
+              Learn More
+
+              <span aria-hidden="true">
+                →
+              </span>
+            </a>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- ===================================================
+             SERVICE 07 — POST OPERATIVE
+        ==================================================== -->
+
+        <article class="prime-service-card">
+
+          <a
+            href="https://primephysiotherapy.com.au/post-op-physiotherapy/"
+            class="prime-service-image"
+            aria-label="Learn more about Post-Operative Physiotherapy"
+          >
+
+            <img
+              src="https://primephysiotherapy.com.au/wp-content/uploads/2020/07/post-op-253x300.jpg"
+              alt="Post-operative physiotherapy"
+            >
+
+          </a>
+
+
+          <div class="prime-service-content">
+
+            <span class="prime-service-number">
+              07
+            </span>
+
+
+            <h3>
+              Post-Operative
+            </h3>
+
+
+            <p>
+              Physiotherapy support designed to help patients
+              progress safely following surgery.
+            </p>
+
+
+            <a
+              href="https://primephysiotherapy.com.au/post-op-physiotherapy/"
+              class="prime-service-link"
+            >
+              Learn More
+
+              <span aria-hidden="true">
+                →
+              </span>
+            </a>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- ===================================================
+             SERVICE 08 — CASTING
+        ==================================================== -->
+
+        <article class="prime-service-card">
+
+          <a
+            href="https://primephysiotherapy.com.au/casting-2/"
+            class="prime-service-image"
+            aria-label="Learn more about Casting"
+          >
+
+            <img
+              src="https://primephysiotherapy.com.au/wp-content/uploads/2020/07/casting-253x300.jpg"
+              alt="Casting physiotherapy service"
+            >
+
+          </a>
+
+
+          <div class="prime-service-content">
+
+            <span class="prime-service-number">
+              08
+            </span>
+
+
+            <h3>
+              Casting
+            </h3>
+
+
+            <p>
+              Experienced physiotherapists providing waterproof
+              casting solutions following fractures.
+            </p>
+
+
+            <a
+              href="https://primephysiotherapy.com.au/casting-2/"
+              class="prime-service-link"
+            >
+              Learn More
+
+              <span aria-hidden="true">
+                →
+              </span>
+            </a>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- ===================================================
+             SERVICE 09 — WOMEN'S HEALTH
+        ==================================================== -->
+
+        <article class="prime-service-card">
+
+          <a
+            href="https://primephysiotherapy.com.au/womens-health/"
+            class="prime-service-image"
+            aria-label="Learn more about Women's Health"
+          >
+
+            <img
+              src="https://primephysiotherapy.com.au/wp-content/uploads/2020/07/women-health-253x300.jpg"
+              alt="Women's health physiotherapy"
+            >
+
+          </a>
+
+
+          <div class="prime-service-content">
+
+            <span class="prime-service-number">
+              09
+            </span>
+
+
+            <h3>
+              Women's Health
+            </h3>
+
+
+            <p>
+              Physiotherapy care supporting pelvic health,
+              movement and women's wellbeing.
+            </p>
+
+
+            <a
+              href="https://primephysiotherapy.com.au/womens-health/"
+              class="prime-service-link"
+            >
+              Learn More
+
+              <span aria-hidden="true">
+                →
+              </span>
+            </a>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+
+
+      <!-- RIGHT ARROW -->
+
+      <button
+        type="button"
+        class="prime-services-arrow prime-services-next"
+        id="primeServicesNext"
+        aria-label="Next services"
+      >
+        <span aria-hidden="true">
+          →
+        </span>
+      </button>
+
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+
+<style>
+
+/* =========================================================
+   SERVICES SECTION
+========================================================= */
+
+.prime-services {
+  position: relative;
+
+  width: 100%;
+
+  padding:
+    110px
+    0
+    120px;
+
+  overflow: hidden;
+
+  background: #ffffff;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.prime-services-inner {
+  width: min(
+    calc(100% - 90px),
+    1450px
+  );
+
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.prime-services-header {
+  width: calc(100% - 128px);
+
+  margin:
+    0
+    auto
+    52px;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.15fr)
+    minmax(370px, 0.7fr);
+
+  gap: 95px;
+
+  align-items: end;
+}
+
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.prime-services-eyebrow {
+  display: inline-block;
+
+  margin-bottom: 21px;
+
+  color: #1d4093;
+
+  font-family:
+    "Poppins",
+    sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  line-height: 1;
+
+  letter-spacing: 1.7px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.prime-services-heading {
+  max-width: 710px;
+
+  margin: 0;
+
+  color: #172235;
+
+  font-family:
+    "Manrope",
+    sans-serif;
+
+  font-size:
+    clamp(
+      44px,
+      4vw,
+      58px
+    );
+
+  font-weight: 800;
+
+  line-height: 1.06;
+
+  letter-spacing: -2.7px;
+}
+
+
+.prime-services-heading span {
+  display: block;
+
+  color: #1d4093;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.prime-services-header-right {
+  max-width: 500px;
+
+  justify-self: end;
+}
+
+
+.prime-services-intro {
+  margin: 0;
+
+  color: #5d7088;
+
+  font-family:
+    "DM Sans",
+    sans-serif;
+
+  font-size: 17px;
+
+  line-height: 1.78;
+}
+
+
+/* =========================================================
+   CAROUSEL WRAPPER
+========================================================= */
+
+.prime-services-carousel {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    48px
+    minmax(0, 1fr)
+    48px;
+
+  gap: 16px;
+
+  align-items: center;
+}
+
+
+/* =========================================================
+   SIDE ARROWS
+========================================================= */
+
+.prime-services-arrow {
+  position: relative;
+
+  z-index: 5;
+
+  width: 48px;
+  height: 48px;
+
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid
+    #c9d5e4;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  color: #1d4093;
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size: 19px;
+
+  box-shadow:
+    0 4px 14px
+    rgba(24, 52, 94, 0.04);
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.prime-services-arrow:hover {
+  color: #ffffff;
+
+  background: #1d4093;
+
+  border-color: #1d4093;
+
+  transform:
+    scale(1.05);
+
+  box-shadow:
+    0 8px 22px
+    rgba(29, 64, 147, 0.18);
+}
+
+
+.prime-services-arrow:disabled {
+  opacity: 0.25;
+
+  box-shadow: none;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   SERVICES TRACK
+========================================================= */
+
+.prime-services-track {
+  width: 100%;
+
+  display: flex;
+
+  gap: 20px;
+
+  overflow-x: auto;
+
+  overflow-y: visible;
+
+  scroll-behavior: smooth;
+
+  scroll-snap-type:
+    x mandatory;
+
+  overscroll-behavior-inline:
+    contain;
+
+  scrollbar-width: none;
+
+  padding:
+    7px
+    1px
+    10px;
+}
+
+
+.prime-services-track::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* =========================================================
+   SERVICE CARD
+========================================================= */
+
+.prime-service-card {
+  flex:
+    0
+    0
+    calc(
+      (100% - 60px) / 4
+    );
+
+  min-width: 0;
+
+  scroll-snap-align: start;
+
+  display: flex;
+
+  flex-direction: column;
+
+  overflow: hidden;
+
+  border:
+    1px solid
+    #dce5ee;
+
+  border-radius: 6px;
+
+  background: #ffffff;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.prime-service-card:hover {
+  transform:
+    translateY(-5px);
+
+  border-color:
+    #c6d4e4;
+
+  box-shadow:
+    0 17px 38px
+    rgba(23, 52, 89, 0.08);
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.prime-service-image {
+  position: relative;
+
+  width: 100%;
+
+  height: 210px;
+
+  overflow: hidden;
+
+  background: #e8edf2;
+}
+
+
+.prime-service-image::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent 70%,
+      rgba(20, 38, 60, 0.045)
+    );
+
+  pointer-events: none;
+}
+
+
+.prime-service-image img {
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  object-position: center;
+
+  transition:
+    transform 0.55s ease;
+}
+
+
+.prime-service-card:hover
+.prime-service-image img {
+  transform:
+    scale(1.035);
+}
+
+
+/* =========================================================
+   CARD CONTENT
+========================================================= */
+
+.prime-service-content {
+  flex: 1;
+
+  min-height: 260px;
+
+  padding:
+    25px
+    24px
+    25px;
+
+  display: flex;
+
+  flex-direction: column;
+}
+
+
+/* =========================================================
+   NUMBER
+========================================================= */
+
+.prime-service-number {
+  display: block;
+
+  margin-bottom: 13px;
+
+  color:
+    rgba(29,64,147,0.58);
+
+  font-family:
+    "Poppins",
+    sans-serif;
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  line-height: 1;
+
+  letter-spacing: 1.4px;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.prime-service-content h3 {
+  margin:
+    0
+    0
+    12px;
+
+  color: #172235;
+
+  font-family:
+    "Manrope",
+    sans-serif;
+
+  font-size: 22px;
+
+  font-weight: 700;
+
+  line-height: 1.2;
+
+  letter-spacing: -0.6px;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.prime-service-content p {
+  margin:
+    0
+    0
+    23px;
+
+  color: #64768c;
+
+  font-family:
+    "DM Sans",
+    sans-serif;
+
+  font-size: 14.5px;
+
+  line-height: 1.68;
+}
+
+
+/* =========================================================
+   LEARN MORE
+========================================================= */
+
+.prime-service-link {
+  width: fit-content;
+
+  margin-top: auto;
+
+  padding-bottom: 5px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  color: #1d4093;
+
+  border-bottom:
+    1px solid
+    rgba(29,64,147,0.24);
+
+  font-family:
+    "Poppins",
+    sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  line-height: 1;
+
+  transition:
+    border-color 0.2s ease;
+}
+
+
+.prime-service-link span {
+  display: inline-block;
+
+  font-size: 15px;
+
+  transition:
+    transform 0.2s ease;
+}
+
+
+.prime-service-link:hover {
+  border-color: #1d4093;
+}
+
+
+.prime-service-link:hover span {
+  transform:
+    translateX(4px);
+}
+
+
+/* =========================================================
+   MEDIUM DESKTOP
+========================================================= */
+
+@media (max-width: 1200px) {
+
+  .prime-services-inner {
+    width:
+      calc(100% - 60px);
+  }
+
+
+  .prime-services-header {
+    width:
+      calc(100% - 110px);
+
+    gap: 55px;
+  }
+
+
+  .prime-services-heading {
+    font-size: 50px;
+  }
+
+
+  .prime-services-intro {
+    font-size: 16px;
+  }
+
+
+  .prime-services-carousel {
+    grid-template-columns:
+      44px
+      minmax(0, 1fr)
+      44px;
+
+    gap: 13px;
+  }
+
+
+  .prime-services-arrow {
+    width: 44px;
+
+    height: 44px;
+  }
+
+
+  .prime-service-image {
+    height: 195px;
+  }
+
+
+  .prime-service-content {
+    min-height: 270px;
+
+    padding:
+      23px
+      21px;
+  }
+
+
+  .prime-service-content h3 {
+    font-size: 20px;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 980px) {
+
+  .prime-services {
+    padding:
+      88px
+      0
+      95px;
+  }
+
+
+  .prime-services-inner {
+    width:
+      calc(100% - 60px);
+  }
+
+
+  .prime-services-header {
+    width: 100%;
+
+    margin-bottom: 42px;
+
+    grid-template-columns: 1fr;
+
+    gap: 23px;
+  }
+
+
+  .prime-services-header-right {
+    max-width: 700px;
+
+    justify-self: start;
+  }
+
+
+  .prime-services-heading {
+    max-width: 680px;
+
+    font-size: 49px;
+  }
+
+
+  .prime-services-intro {
+    max-width: 680px;
+  }
+
+
+  .prime-services-carousel {
+    grid-template-columns:
+      45px
+      minmax(0,1fr)
+      45px;
+
+    gap: 12px;
+  }
+
+
+  .prime-services-arrow {
+    width: 45px;
+
+    height: 45px;
+  }
+
+
+  /* 2 cards */
+  .prime-service-card {
+    flex:
+      0
+      0
+      calc(
+        (100% - 20px) / 2
+      );
+  }
+
+
+  .prime-service-image {
+    height: 230px;
+  }
+
+
+  .prime-service-content {
+    min-height: 250px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+  .prime-services {
+    padding:
+      70px
+      0
+      78px;
+  }
+
+
+  .prime-services-inner {
+    width:
+      calc(100% - 36px);
+  }
+
+
+  .prime-services-header {
+    margin-bottom: 34px;
+  }
+
+
+  .prime-services-eyebrow {
+    margin-bottom: 16px;
+
+    font-size: 10.5px;
+  }
+
+
+  .prime-services-heading {
+    font-size: 39px;
+
+    line-height: 1.08;
+
+    letter-spacing: -2px;
+  }
+
+
+  .prime-services-intro {
+    font-size: 15.5px;
+
+    line-height: 1.7;
+  }
+
+
+  /* arrows overlay beside cards */
+  .prime-services-carousel {
+    display: block;
+  }
+
+
+  .prime-services-track {
+    padding:
+      5px
+      1px
+      12px;
+  }
+
+
+  .prime-services-arrow {
+    position: absolute;
+
+    top: 50%;
+
+    z-index: 20;
+
+    width: 42px;
+
+    height: 42px;
+
+    transform:
+      translateY(-50%);
+
+    background:
+      rgba(255,255,255,0.96);
+
+    box-shadow:
+      0 6px 18px
+      rgba(22,45,76,0.12);
+  }
+
+
+  .prime-services-arrow:hover {
+    transform:
+      translateY(-50%)
+      scale(1.04);
+  }
+
+
+  .prime-services-prev {
+    left: -10px;
+  }
+
+
+  .prime-services-next {
+    right: -10px;
+  }
+
+
+  /* one card + visible peek */
+  .prime-service-card {
+    flex:
+      0
+      0
+      87%;
+  }
+
+
+  .prime-service-image {
+    height: 240px;
+  }
+
+
+  .prime-service-content {
+    min-height: 245px;
+
+    padding:
+      23px
+      22px;
+  }
+
+
+  .prime-service-content h3 {
+    font-size: 21px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+  .prime-services-inner {
+    width:
+      calc(100% - 30px);
+  }
+
+
+  .prime-services-heading {
+    font-size: 35px;
+  }
+
+
+  .prime-service-card {
+    flex-basis: 90%;
+  }
+
+
+  .prime-service-image {
+    height: 220px;
+  }
+
+}
+
+</style>
+
+
+
+<script>
+
+/* =========================================================
+   SERVICES CAROUSEL
+========================================================= */
+
+document.addEventListener(
+  "DOMContentLoaded",
+  function () {
+
+
+    const track =
+      document.getElementById(
+        "primeServicesTrack"
+      );
+
+
+    const prev =
+      document.getElementById(
+        "primeServicesPrev"
+      );
+
+
+    const next =
+      document.getElementById(
+        "primeServicesNext"
+      );
+
+
+    if (
+      !track ||
+      !prev ||
+      !next
+    ) {
+      return;
+    }
+
+
+
+    /* =======================================================
+       GET ONE CARD SCROLL DISTANCE
+    ======================================================== */
+
+    function getScrollAmount() {
+
+      const card =
+        track.querySelector(
+          ".prime-service-card"
+        );
+
+
+      if (!card) {
+        return 300;
+      }
+
+
+      const styles =
+        window.getComputedStyle(
+          track
+        );
+
+
+      const gap =
+        parseFloat(
+          styles.gap
+        )
+        ||
+        20;
+
+
+      return (
+        card
+          .getBoundingClientRect()
+          .width
+        +
+        gap
+      );
+
+    }
+
+
+
+    /* =======================================================
+       PREVIOUS
+    ======================================================== */
+
+    prev.addEventListener(
+      "click",
+      function () {
+
+        track.scrollBy({
+
+          left:
+            -getScrollAmount(),
+
+          behavior:
+            "smooth"
+
+        });
+
+      }
+    );
+
+
+
+    /* =======================================================
+       NEXT
+    ======================================================== */
+
+    next.addEventListener(
+      "click",
+      function () {
+
+        track.scrollBy({
+
+          left:
+            getScrollAmount(),
+
+          behavior:
+            "smooth"
+
+        });
+
+      }
+    );
+
+
+
+    /* =======================================================
+       ENABLE / DISABLE ARROWS
+    ======================================================== */
+
+    function updateArrows() {
+
+      const maxScroll =
+        track.scrollWidth
+        -
+        track.clientWidth;
+
+
+      const current =
+        track.scrollLeft;
+
+
+      prev.disabled =
+        current <= 4;
+
+
+      next.disabled =
+        current
+        >=
+        maxScroll - 4;
+
+    }
+
+
+
+    track.addEventListener(
+      "scroll",
+      updateArrows,
+      {
+        passive: true
+      }
+    );
+
+
+    window.addEventListener(
+      "resize",
+      updateArrows
+    );
+
+
+    updateArrows();
+
+
+  }
+);
+
+</script>
+
+
+
+    <!-- =======================================================
+         SECTION 06 — INSIDE PRIME GALLERY
+    ======================================================== -->
+
+    <section
+      class="prime-gallery"
+      id="gallery"
+    >
+
+      <div class="prime-gallery-inner">
+
+
+        <div class="prime-gallery-header">
+
+
+          <div>
+
+            <span class="prime-gallery-eyebrow">
+              Inside Prime
+            </span>
+
+            <h2 class="prime-gallery-heading">
+              A closer look at
+              <span>Prime Physiotherapy.</span>
+            </h2>
+
+          </div>
+
+
+
+          <div class="prime-gallery-intro">
+
+            <p>
+
+              Take a look inside our clinics, facilities and the
+              environment where our team provides physiotherapy care
+              across South Western Sydney.
+
+            </p>
+
+
+            <button
+              type="button"
+              class="prime-gallery-text-link"
+              id="openFullGallery"
+            >
+
+              View Full Gallery
+
+              <span>
+                →
+              </span>
+
+            </button>
+
+          </div>
+
+
+        </div>
+
+
+
+        <div class="prime-gallery-grid">
+
+
+          <button
+            type="button"
+            class="prime-gallery-item prime-gallery-large"
+            data-gallery-index="0"
+          >
+
+            <img
+              src="https://primephysiotherapy.com.au/wp-content/uploads/2020/07/img-gal1-3.jpg"
+              alt="Prime Physiotherapy clinic"
+            >
+
+
+            <span class="prime-gallery-overlay">
+
+              <span class="prime-gallery-label">
+                Our Clinics
+              </span>
+
+              <span class="prime-gallery-view">
+                View ↗
+              </span>
+
+            </span>
+
+          </button>
+
+
+
+          <button
+            type="button"
+            class="prime-gallery-item prime-gallery-small"
+            data-gallery-index="1"
+          >
+
+            <img
+              src="https://primephysiotherapy.com.au/wp-content/uploads/2020/07/img-gal3-1.jpg"
+              alt="Prime Physiotherapy facilities"
+            >
+
+
+            <span class="prime-gallery-overlay">
+
+              <span class="prime-gallery-label">
+                Our Facilities
+              </span>
+
+              <span class="prime-gallery-view">
+                View ↗
+              </span>
+
+            </span>
+
+          </button>
+
+
+
+          <button
+            type="button"
+            class="prime-gallery-item prime-gallery-small"
+            data-gallery-index="2"
+          >
+
+            <img
+              src="https://primephysiotherapy.com.au/wp-content/uploads/2020/07/img-gal2-1.jpg"
+              alt="Prime Physiotherapy clinical spaces"
+            >
+
+
+            <span class="prime-gallery-overlay">
+
+              <span class="prime-gallery-label">
+                Clinical Spaces
+              </span>
+
+              <span class="prime-gallery-view">
+                View ↗
+              </span>
+
+            </span>
+
+          </button>
+
+
+
+          <button
+            type="button"
+            class="prime-gallery-item prime-gallery-wide"
+            data-gallery-index="3"
+          >
+
+            <img
+              src="https://primephysiotherapy.com.au/wp-content/uploads/2020/07/img-gal9.jpg"
+              alt="Prime Physiotherapy patient care"
+            >
+
+
+            <span class="prime-gallery-overlay">
+
+              <span class="prime-gallery-label">
+                Patient Care
+              </span>
+
+              <span class="prime-gallery-view">
+                View ↗
+              </span>
+
+            </span>
+
+          </button>
+
+
+
+          <button
+            type="button"
+            class="prime-gallery-item prime-gallery-wide"
+            data-gallery-index="4"
+          >
+
+            <img
+              src="https://primephysiotherapy.com.au/wp-content/uploads/2020/07/img-gal8.jpg"
+              alt="Prime Physiotherapy"
+            >
+
+
+            <span class="prime-gallery-overlay">
+
+              <span class="prime-gallery-label">
+                Prime Physiotherapy
+              </span>
+
+              <span class="prime-gallery-view">
+                View ↗
+              </span>
+
+            </span>
+
+          </button>
+
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =======================================================
+         SECTION 07 — NEWSLETTER
+    ======================================================== -->
+
+    <section
+      class="prime-newsletter"
+      id="newsletter"
+    >
+
+      <div class="prime-newsletter-inner">
+
+
+        <div class="prime-newsletter-content">
+
+          <span class="prime-newsletter-eyebrow">
+            Stay Connected
+          </span>
+
+
+          <h2 class="prime-newsletter-heading">
+            Get the latest
+            <span>updates from Prime.</span>
+          </h2>
+
+
+          <p class="prime-newsletter-text">
+
+            Sign up to receive helpful health tips, clinic updates,
+            service announcements and the latest news from
+            Prime Physiotherapy.
+
+          </p>
+
+        </div>
+
+
+
+        <div class="prime-newsletter-card">
+
+          <form class="prime-newsletter-form">
+
+
+            <label
+              for="newsletterEmail"
+              class="prime-newsletter-label"
+            >
+              Email Address
+            </label>
+
+
+            <div class="prime-newsletter-input-group">
+
+              <input
+                type="email"
+                id="newsletterEmail"
+                class="prime-newsletter-input"
+                placeholder="Enter your email address"
+                required
+              >
+
+
+              <button
+                type="submit"
+                class="prime-newsletter-button"
+              >
+
+                Subscribe
+
+                <span>
+                  →
+                </span>
+
+              </button>
+
+            </div>
+
+
+            <p class="prime-newsletter-note">
+              We’ll only send relevant updates. No spam.
+            </p>
+
+
+          </form>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- =========================================================
+       SECTION 08 — FOOTER
+  ========================================================= -->
+
+  <footer class="prime-footer">
+
+
+    <div class="prime-footer-main">
+
+      <div class="prime-footer-inner">
+
+
+        <!-- BRAND -->
+
+        <div class="prime-footer-brand">
+
+          <a
+            href="#"
+            class="prime-footer-logo"
+          >
+
+            <img
+              src="prime-logo.png"
+              alt="Prime Physiotherapy"
+            >
+
+          </a>
+
+
+          <p class="prime-footer-about">
+
+            Providing experienced physiotherapy care to Liverpool
+            and South Western Sydney for more than 30 years.
+
+          </p>
+
+
+          <a
+            href="#"
+            class="prime-footer-book"
+          >
+
+            Book an Appointment
+
+            <span>
+              →
+            </span>
+
+          </a>
+
+        </div>
+
+
+
+        <!-- QUICK LINKS -->
+
+        <div class="prime-footer-column">
+
+          <h3>
+            Quick Links
+          </h3>
+
+
+          <ul>
+
+            <li>
+              <a href="#">
+                Home
+              </a>
+            </li>
+
+            <li>
+              <a href="#about">
+                About
+              </a>
+            </li>
+
+            <li>
+              <a href="#services">
+                Services
+              </a>
+            </li>
+
+            <li>
+              <a href="#gallery">
+                Gallery
+              </a>
+            </li>
+
+            <li>
+              <a href="#locations">
+                Locations
+              </a>
+            </li>
+
+            <li>
+              <a href="#careers">
+                Careers
+              </a>
+            </li>
+
+            <li>
+              <a href="#contact">
+                Contact Us
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+
+
+        <!-- SERVICES -->
+
+        <div class="prime-footer-column">
+
+          <h3>
+            Services
+          </h3>
+
+
+          <ul>
+
+            <li>
+              <a href="#">
+                Manipulation
+              </a>
+            </li>
+
+            <li>
+              <a href="#">
+                Work-Related
+              </a>
+            </li>
+
+            <li>
+              <a href="#">
+                Gym Programs
+              </a>
+            </li>
+
+            <li>
+              <a href="#">
+                Hydrotherapy
+              </a>
+            </li>
+
+            <li>
+              <a href="#">
+                Dry Needling
+              </a>
+            </li>
+
+            <li>
+              <a href="#">
+                Group Exercise
+              </a>
+            </li>
+
+            <li>
+              <a href="#">
+                Post-Operative
+              </a>
+            </li>
+
+            <li>
+              <a href="#">
+                Casting
+              </a>
+            </li>
+
+            <li>
+              <a href="#">
+                Women's Health
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+
+
+        <!-- LOCATIONS -->
+
+        <div
+          class="prime-footer-locations"
+          id="locations"
+        >
+
+          <h3>
+            Our Locations
+          </h3>
+
+
+          <div class="prime-footer-location-grid">
+
+
+            <div class="prime-footer-location">
+
+              <h4>
+                Moorebank
+              </h4>
+
+              <p>
+                39 Stockton Ave<br>
+                Moorebank NSW 2170
+              </p>
+
+              <a href="tel:0296022296">
+                02 9602 2296
+              </a>
+
+            </div>
+
+
+
+            <div class="prime-footer-location">
+
+              <h4>
+                Liverpool
+              </h4>
+
+              <p>
+                The Whitlam Centre<br>
+                90a Memorial Ave<br>
+                Liverpool NSW 2170
+              </p>
+
+              <a href="tel:0296008755">
+                02 9600 8755
+              </a>
+
+            </div>
+
+
+
+            <div class="prime-footer-location">
+
+              <h4>
+                Green Valley
+              </h4>
+
+              <p>
+                198 Green Valley Road<br>
+                Green Valley NSW 2168
+              </p>
+
+              <a href="tel:0298266855">
+                02 9826 6855
+              </a>
+
+            </div>
+
+
+          </div>
+
+
+
+          <div
+            class="prime-footer-contact"
+            id="contact"
+          >
+
+            <span>
+              Email
+            </span>
+
+            <a href="mailto:info@primephysiotherapy.com.au">
+              info@primephysiotherapy.com.au
+            </a>
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+
+
+    <div class="prime-footer-bottom">
+
+      <div class="prime-footer-bottom-inner">
+
+
+        <p>
+
+          ©
+          <span id="primeFooterYear"></span>
+          Prime Physiotherapy. All rights reserved.
+
+        </p>
+
+
+        <div class="prime-footer-legal">
+
+          <a href="#">
+            Privacy Policy
+          </a>
+
+          <a href="#">
+            Terms & Conditions
+          </a>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+
+  </footer>
+
+
+
+  <!-- =========================================================
+       SECTION 09 — GALLERY LIGHTBOX
+  ========================================================= -->
+
+  <div
+    class="prime-lightbox"
+    id="primeLightbox"
+    aria-hidden="true"
+  >
+
+
+    <button
+      type="button"
+      class="prime-lightbox-backdrop"
+      id="lightboxBackdrop"
+      aria-label="Close gallery"
+    ></button>
+
+
+
+    <div class="prime-lightbox-dialog">
+
+
+      <button
+        type="button"
+        class="prime-lightbox-close"
+        id="lightboxClose"
+        aria-label="Close gallery"
+      >
+        ×
+      </button>
+
+
+
+      <button
+        type="button"
+        class="prime-lightbox-arrow prime-lightbox-prev"
+        id="lightboxPrev"
+        aria-label="Previous image"
+      >
+        ←
+      </button>
+
+
+
+      <div class="prime-lightbox-image-wrap">
+
+
+        <img
+          src=""
+          alt=""
+          class="prime-lightbox-image"
+          id="lightboxImage"
+        >
+
+
+        <div class="prime-lightbox-caption">
+
+
+          <div>
+
+            <span class="prime-lightbox-small">
+              Inside Prime
+            </span>
+
+            <strong id="lightboxTitle">
+              Our Clinics
+            </strong>
+
+          </div>
+
+
+          <span
+            class="prime-lightbox-counter"
+            id="lightboxCounter"
+          >
+            1 / 6
+          </span>
+
+
+        </div>
+
+
+      </div>
+
+
+
+      <button
+        type="button"
+        class="prime-lightbox-arrow prime-lightbox-next"
+        id="lightboxNext"
+        aria-label="Next image"
+      >
+        →
+      </button>
+
+
+    </div>
+
+
+  </div>
+
+
+
+  <!-- =========================================================
+       JAVASCRIPT
+  ========================================================= -->
+
+  <script>
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      function () {
+
+
+        /* =====================================================
+           ACTION 01 — STICKY HEADER
+        ===================================================== */
+
+        const siteHeader =
+          document.getElementById(
+            "siteHeader"
+          );
+
+
+        function updateHeader() {
+
+          siteHeader.classList.toggle(
+            "scrolled",
+            window.scrollY > 45
+          );
+
+        }
+
+
+        window.addEventListener(
+          "scroll",
+          updateHeader,
+          {
+            passive: true
+          }
+        );
+
+
+        updateHeader();
+
+
+
+        /* =====================================================
+           ACTION 02 — MOBILE MENU
+        ===================================================== */
+
+        const mobileToggle =
+          document.getElementById(
+            "mobileToggle"
+          );
+
+
+        const navMenu =
+          document.getElementById(
+            "navMenu"
+          );
+
+
+        mobileToggle.addEventListener(
+          "click",
+          function () {
+
+            navMenu.classList.toggle(
+              "open"
+            );
+
+          }
+        );
+
+
+        navMenu
+          .querySelectorAll("a")
+          .forEach(
+            function (link) {
+
+              link.addEventListener(
+                "click",
+                function () {
+
+                  navMenu.classList.remove(
+                    "open"
+                  );
+
+                }
+              );
+
+            }
+          );
+
+
+
+        /* =====================================================
+           ACTION 03 — HERO SLIDER
+        ===================================================== */
+
+        const heroSlides =
+          Array.from(
+            document.querySelectorAll(
+              ".hero-slide"
+            )
+          );
+
+
+        const heroDots =
+          Array.from(
+            document.querySelectorAll(
+              ".slider-dot"
+            )
+          );
+
+
+        let heroIndex = 0;
+
+        let heroTimer = null;
+
+
+        function showHeroSlide(index) {
+
+          heroIndex =
+            (
+              index +
+              heroSlides.length
+            )
+            %
+            heroSlides.length;
+
+
+          heroSlides.forEach(
+            function (
+              slide,
+              index
+            ) {
+
+              slide.classList.toggle(
+                "active",
+                index === heroIndex
+              );
+
+            }
+          );
+
+
+          heroDots.forEach(
+            function (
+              dot,
+              index
+            ) {
+
+              dot.classList.toggle(
+                "active",
+                index === heroIndex
+              );
+
+            }
+          );
+
+        }
+
+
+        function startHeroSlider() {
+
+          clearInterval(
+            heroTimer
+          );
+
+
+          heroTimer =
+            setInterval(
+              function () {
+
+                showHeroSlide(
+                  heroIndex + 1
+                );
+
+              },
+              5000
+            );
+
+        }
+
+
+        heroDots.forEach(
+          function (
+            dot,
+            index
+          ) {
+
+            dot.addEventListener(
+              "click",
+              function () {
+
+                showHeroSlide(index);
+
+                startHeroSlider();
+
+              }
+            );
+
+          }
+        );
+
+
+        showHeroSlide(0);
+
+        startHeroSlider();
+
+
+
+        /* =====================================================
+           ACTION 04 — SERVICES CAROUSEL
+        ===================================================== */
+
+        const servicesTrack =
+          document.getElementById(
+            "primeServicesTrack"
+          );
+
+
+        const servicesPrev =
+          document.getElementById(
+            "primeServicesPrev"
+          );
+
+
+        const servicesNext =
+          document.getElementById(
+            "primeServicesNext"
+          );
+
+
+        function getServiceStep() {
+
+          const card =
+            servicesTrack.querySelector(
+              ".prime-service-card"
+            );
+
+
+          if (!card) {
+            return 300;
+          }
+
+
+          const style =
+            window.getComputedStyle(
+              servicesTrack
+            );
+
+
+          const gap =
+            parseFloat(
+              style.gap
+            )
+            ||
+            20;
+
+
+          return (
+            card.getBoundingClientRect().width
+            +
+            gap
+          );
+
+        }
+
+
+        servicesPrev.addEventListener(
+          "click",
+          function () {
+
+            servicesTrack.scrollBy({
+              left:
+                -getServiceStep(),
+
+              behavior:
+                "smooth"
+            });
+
+          }
+        );
+
+
+        servicesNext.addEventListener(
+          "click",
+          function () {
+
+            servicesTrack.scrollBy({
+              left:
+                getServiceStep(),
+
+              behavior:
+                "smooth"
+            });
+
+          }
+        );
+
+
+        function updateServiceButtons() {
+
+          const maxScroll =
+            servicesTrack.scrollWidth
+            -
+            servicesTrack.clientWidth;
+
+
+          servicesPrev.disabled =
+            servicesTrack.scrollLeft
+            <=
+            4;
+
+
+          servicesNext.disabled =
+            servicesTrack.scrollLeft
+            >=
+            maxScroll - 4;
+
+        }
+
+
+        servicesTrack.addEventListener(
+          "scroll",
+          updateServiceButtons,
+          {
+            passive: true
+          }
+        );
+
+
+        window.addEventListener(
+          "resize",
+          updateServiceButtons
+        );
+
+
+        updateServiceButtons();
+
+
+
+        /* =====================================================
+           ACTION 05 — GALLERY LIGHTBOX
+        ===================================================== */
+
+        const galleryImages = [
+
+          {
+            src:
+              "https://primephysiotherapy.com.au/wp-content/uploads/2020/07/img-gal1-3.jpg",
+
+            title:
+              "Our Clinics"
+          },
+
+          {
+            src:
+              "https://primephysiotherapy.com.au/wp-content/uploads/2020/07/img-gal3-1.jpg",
+
+            title:
+              "Our Facilities"
+          },
+
+          {
+            src:
+              "https://primephysiotherapy.com.au/wp-content/uploads/2020/07/img-gal2-1.jpg",
+
+            title:
+              "Clinical Spaces"
+          },
+
+          {
+            src:
+              "https://primephysiotherapy.com.au/wp-content/uploads/2020/07/img-gal9.jpg",
+
+            title:
+              "Patient Care"
+          },
+
+          {
+            src:
+              "https://primephysiotherapy.com.au/wp-content/uploads/2020/07/img-gal8.jpg",
+
+            title:
+              "Prime Physiotherapy"
+          },
+
+          {
+            src:
+              "https://primephysiotherapy.com.au/wp-content/uploads/2020/07/img-gal7-1.jpg",
+
+            title:
+              "Inside Prime"
+          }
+
+        ];
+
+
+        const galleryItems =
+          document.querySelectorAll(
+            "[data-gallery-index]"
+          );
+
+
+        const openFullGallery =
+          document.getElementById(
+            "openFullGallery"
+          );
+
+
+        const lightbox =
+          document.getElementById(
+            "primeLightbox"
+          );
+
+
+        const lightboxImage =
+          document.getElementById(
+            "lightboxImage"
+          );
+
+
+        const lightboxTitle =
+          document.getElementById(
+            "lightboxTitle"
+          );
+
+
+        const lightboxCounter =
+          document.getElementById(
+            "lightboxCounter"
+          );
+
+
+        const lightboxClose =
+          document.getElementById(
+            "lightboxClose"
+          );
+
+
+        const lightboxBackdrop =
+          document.getElementById(
+            "lightboxBackdrop"
+          );
+
+
+        const lightboxPrev =
+          document.getElementById(
+            "lightboxPrev"
+          );
+
+
+        const lightboxNext =
+          document.getElementById(
+            "lightboxNext"
+          );
+
+
+        let galleryIndex = 0;
+
+
+        function updateLightbox() {
+
+          const item =
+            galleryImages[
+              galleryIndex
+            ];
+
+
+          lightboxImage.src =
+            item.src;
+
+
+          lightboxImage.alt =
+            item.title;
+
+
+          lightboxTitle.textContent =
+            item.title;
+
+
+          lightboxCounter.textContent =
+            (
+              galleryIndex + 1
+            )
+            +
+            " / "
+            +
+            galleryImages.length;
+
+        }
+
+
+        function openLightbox(index) {
+
+          galleryIndex =
+            index;
+
+
+          updateLightbox();
+
+
+          lightbox.classList.add(
+            "open"
+          );
+
+
+          lightbox.setAttribute(
+            "aria-hidden",
+            "false"
+          );
+
+
+          document.body.classList.add(
+            "lightbox-open"
+          );
+
+        }
+
+
+        function closeLightbox() {
+
+          lightbox.classList.remove(
+            "open"
+          );
+
+
+          lightbox.setAttribute(
+            "aria-hidden",
+            "true"
+          );
+
+
+          document.body.classList.remove(
+            "lightbox-open"
+          );
+
+        }
+
+
+        function nextGalleryImage() {
+
+          galleryIndex =
+            (
+              galleryIndex + 1
+            )
+            %
+            galleryImages.length;
+
+
+          updateLightbox();
+
+        }
+
+
+        function previousGalleryImage() {
+
+          galleryIndex =
+            (
+              galleryIndex
+              -
+              1
+              +
+              galleryImages.length
+            )
+            %
+            galleryImages.length;
+
+
+          updateLightbox();
+
+        }
+
+
+        galleryItems.forEach(
+          function (item) {
+
+            item.addEventListener(
+              "click",
+              function () {
+
+                openLightbox(
+                  Number(
+                    item.dataset.galleryIndex
+                  )
+                );
+
+              }
+            );
+
+          }
+        );
+
+
+        openFullGallery.addEventListener(
+          "click",
+          function () {
+
+            openLightbox(0);
+
+          }
+        );
+
+
+        lightboxClose.addEventListener(
+          "click",
+          closeLightbox
+        );
+
+
+        lightboxBackdrop.addEventListener(
+          "click",
+          closeLightbox
+        );
+
+
+        lightboxPrev.addEventListener(
+          "click",
+          previousGalleryImage
+        );
+
+
+        lightboxNext.addEventListener(
+          "click",
+          nextGalleryImage
+        );
+
+
+        document.addEventListener(
+          "keydown",
+          function (event) {
+
+            if (
+              !lightbox.classList.contains(
+                "open"
+              )
+            ) {
+              return;
+            }
+
+
+            if (
+              event.key === "Escape"
+            ) {
+              closeLightbox();
+            }
+
+
+            if (
+              event.key === "ArrowLeft"
+            ) {
+              previousGalleryImage();
+            }
+
+
+            if (
+              event.key === "ArrowRight"
+            ) {
+              nextGalleryImage();
+            }
+
+          }
+        );
+
+
+
+        /* =====================================================
+           ACTION 06 — FOOTER YEAR
+        ===================================================== */
+
+        const footerYear =
+          document.getElementById(
+            "primeFooterYear"
+          );
+
+
+        if (footerYear) {
+
+          footerYear.textContent =
+            new Date().getFullYear();
+
+        }
+
+
+      }
+    );
+
+  </script>
+
+
+</body>
+
+</html>
